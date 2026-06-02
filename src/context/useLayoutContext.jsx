@@ -10,14 +10,13 @@ const useLayoutContext = () => {
   }
   return context;
 };
-const getPreferredTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 const LayoutProvider = ({
   children
 }) => {
   const queryParams = useQueryParams();
   const override = !!(queryParams.layout_theme || queryParams.topbar_theme || queryParams.menu_theme || queryParams.menu_size);
   const INIT_STATE = {
-    theme: queryParams['layout_theme'] ? queryParams['layout_theme'] : getPreferredTheme(),
+    theme: queryParams['layout_theme'] ? queryParams['layout_theme'] : 'light',
     topbarTheme: queryParams['topbar_theme'] ? queryParams['topbar_theme'] : 'light',
     menu: {
       theme: queryParams['menu_theme'] ? queryParams['menu_theme'] : 'light',
