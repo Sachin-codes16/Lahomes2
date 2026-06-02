@@ -107,164 +107,164 @@ const StatCard = ({ stat }) => (
 );
 
 const RepairApprovalPage = () => {
-  return (
-    <div style={{ padding: 24 }}>
-      <div style={{ background: '#edf2f8', borderRadius: 8, marginBottom: 24, padding: '26px 25px' }}>
-        <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(4, minmax(220px, 1fr))' }}>
-          {stats.map((stat) => (
-            <StatCard key={stat.label} stat={stat} />
-          ))}
-        </div>
-      </div>
+  // return (
+  //   <div style={{ padding: 24 }}>
+  //     <div style={{ background: '#edf2f8', borderRadius: 8, marginBottom: 24, padding: '26px 25px' }}>
+  //       <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(4, minmax(220px, 1fr))' }}>
+  //         {stats.map((stat) => (
+  //           <StatCard key={stat.label} stat={stat} />
+  //         ))}
+  //       </div>
+  //     </div>
 
-      <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'minmax(650px, 1.7fr) minmax(390px, 1fr)' }}>
-        <div>
-          <div className="mb-4" style={cardStyle}>
-            <div className="d-flex align-items-center justify-content-between">
-              <h5 style={titleStyle}>Issue List</h5>
-              <input
-                placeholder="Search"
-                style={{
-                  border: 0,
-                  borderRadius: 4,
-                  boxShadow: '0 8px 18px rgba(15, 23, 42, 0.06)',
-                  color: pageText,
-                  height: 39,
-                  marginRight: 14,
-                  outline: 0,
-                  padding: '0 15px',
-                  width: 325,
-                }}
-              />
-            </div>
+  //     <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'minmax(650px, 1.7fr) minmax(390px, 1fr)' }}>
+  //       <div>
+  //         <div className="mb-4" style={cardStyle}>
+  //           <div className="d-flex align-items-center justify-content-between">
+  //             <h5 style={titleStyle}>Issue List</h5>
+  //             <input
+  //               placeholder="Search"
+  //               style={{
+  //                 border: 0,
+  //                 borderRadius: 4,
+  //                 boxShadow: '0 8px 18px rgba(15, 23, 42, 0.06)',
+  //                 color: pageText,
+  //                 height: 39,
+  //                 marginRight: 14,
+  //                 outline: 0,
+  //                 padding: '0 15px',
+  //                 width: 325,
+  //               }}
+  //             />
+  //           </div>
 
-            <div style={{ padding: '34px 18px 16px' }}>
-              <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-                <thead>
-                  <tr style={{ background: '#fbfcfd' }}>
-                    {['Issue ID', 'Category', 'Issue Description', 'Status', 'Assigned To', 'Target Date', 'Actions'].map((head) => (
-                      <th
-                        key={head}
-                        style={{ color: pageText, fontSize: 16, fontWeight: 700, padding: '20px 24px', textAlign: 'left' }}
-                      >
-                        {head}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {issueRows.map(([id, category, description, status, assignedTo, date]) => (
-                    <tr key={`${category}-${description}`}>
-                      <td style={{ color: pageText, fontSize: 15, padding: '16px 24px' }}>
-                        <IconifyIcon icon="ri:checkbox-circle-line" width={16} height={16} style={{ color: '#2f7ee6', marginRight: 12 }} />
-                        {id}
-                      </td>
-                      {[category, description, status, assignedTo, date].map((value) => (
-                        <td key={value} style={{ color: pageText, fontSize: 15, padding: '16px 24px' }}>
-                          {value}
-                        </td>
-                      ))}
-                      <td style={{ padding: '16px 24px' }}>
-                        <button type="button" style={{ background: 'transparent', border: 0, color: pageText, textDecoration: 'underline' }}>
-                          view
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+  //           <div style={{ padding: '34px 18px 16px' }}>
+  //             <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+  //               <thead>
+  //                 <tr style={{ background: '#fbfcfd' }}>
+  //                   {['Issue ID', 'Category', 'Issue Description', 'Status', 'Assigned To', 'Target Date', 'Actions'].map((head) => (
+  //                     <th
+  //                       key={head}
+  //                       style={{ color: pageText, fontSize: 16, fontWeight: 700, padding: '20px 24px', textAlign: 'left' }}
+  //                     >
+  //                       {head}
+  //                     </th>
+  //                   ))}
+  //                 </tr>
+  //               </thead>
+  //               <tbody>
+  //                 {issueRows.map(([id, category, description, status, assignedTo, date]) => (
+  //                   <tr key={`${category}-${description}`}>
+  //                     <td style={{ color: pageText, fontSize: 15, padding: '16px 24px' }}>
+  //                       <IconifyIcon icon="ri:checkbox-circle-line" width={16} height={16} style={{ color: '#2f7ee6', marginRight: 12 }} />
+  //                       {id}
+  //                     </td>
+  //                     {[category, description, status, assignedTo, date].map((value) => (
+  //                       <td key={value} style={{ color: pageText, fontSize: 15, padding: '16px 24px' }}>
+  //                         {value}
+  //                       </td>
+  //                     ))}
+  //                     <td style={{ padding: '16px 24px' }}>
+  //                       <button type="button" style={{ background: 'transparent', border: 0, color: pageText, textDecoration: 'underline' }}>
+  //                         view
+  //                       </button>
+  //                     </td>
+  //                   </tr>
+  //                 ))}
+  //               </tbody>
+  //             </table>
+  //           </div>
+  //         </div>
 
-          <div style={cardStyle}>
-            <h5 style={titleStyle}>Repaired Photos</h5>
-            <div style={{ padding: '0 26px 24px' }}>
-              <div className="d-flex gap-3 mb-3">
-                {photos.map((photo) => (
-                  <img key={photo} alt="Repair" src={photo} style={{ borderRadius: 8, height: 78, objectFit: 'cover', width: 110 }} />
-                ))}
-              </div>
-              <div className="d-flex justify-content-between align-items-center mb-2">
-                <h6 className="mb-0" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
-                  Recent Resolved Issues
-                </h6>
-                <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16 }}>
-                  View All
-                </button>
-              </div>
-              {resolvedIssues.map(([title, category, image]) => (
-                <div key={title} className="d-flex align-items-center justify-content-between mb-3">
-                  <div className="d-flex align-items-center gap-3">
-                    <img alt={title} src={image} style={{ height: 32, objectFit: 'cover', width: 32 }} />
-                    <div>
-                      <p className="mb-1" style={{ color: pageText, fontSize: 15 }}>
-                        {title}
-                      </p>
-                      <p className="mb-0" style={{ color: pageText, fontSize: 15 }}>
-                        {category}
-                      </p>
-                    </div>
-                  </div>
-                  <span style={{ color: pageText, fontSize: 16 }}>Done</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+  //         <div style={cardStyle}>
+  //           <h5 style={titleStyle}>Repaired Photos</h5>
+  //           <div style={{ padding: '0 26px 24px' }}>
+  //             <div className="d-flex gap-3 mb-3">
+  //               {photos.map((photo) => (
+  //                 <img key={photo} alt="Repair" src={photo} style={{ borderRadius: 8, height: 78, objectFit: 'cover', width: 110 }} />
+  //               ))}
+  //             </div>
+  //             <div className="d-flex justify-content-between align-items-center mb-2">
+  //               <h6 className="mb-0" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
+  //                 Recent Resolved Issues
+  //               </h6>
+  //               <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16 }}>
+  //                 View All
+  //               </button>
+  //             </div>
+  //             {resolvedIssues.map(([title, category, image]) => (
+  //               <div key={title} className="d-flex align-items-center justify-content-between mb-3">
+  //                 <div className="d-flex align-items-center gap-3">
+  //                   <img alt={title} src={image} style={{ height: 32, objectFit: 'cover', width: 32 }} />
+  //                   <div>
+  //                     <p className="mb-1" style={{ color: pageText, fontSize: 15 }}>
+  //                       {title}
+  //                     </p>
+  //                     <p className="mb-0" style={{ color: pageText, fontSize: 15 }}>
+  //                       {category}
+  //                     </p>
+  //                   </div>
+  //                 </div>
+  //                 <span style={{ color: pageText, fontSize: 16 }}>Done</span>
+  //               </div>
+  //             ))}
+  //           </div>
+  //         </div>
+  //       </div>
 
-        <div>
-          <div className="mb-4" style={cardStyle}>
-            <h5 style={titleStyle}>Approval Summary</h5>
-            <div style={{ padding: '5px 48px 12px' }}>
-              {summaryItems.map(([label, value]) => (
-                <div key={label} style={{ display: 'grid', gridTemplateColumns: '220px 20px 1fr', minHeight: 45 }}>
-                  <span style={{ color: pageText, fontSize: 16 }}>{label}</span>
-                  <span style={{ color: pageText, fontSize: 16 }}>:</span>
-                  <span style={{ color: pageText, fontSize: 16 }}>{value}</span>
-                </div>
-              ))}
-              <p style={{ color: pageText, fontSize: 16, margin: '8px 0 14px' }}>Inspector Comments:</p>
-              <div style={{ background: '#f8f8f8', borderRadius: 7, color: pageText, fontSize: 15, padding: '16px 28px' }}>
-                Most of the issues are resolved. Minor Maintenance are pending. Overall Condition is Good
-              </div>
-            </div>
-          </div>
+  //       <div>
+  //         <div className="mb-4" style={cardStyle}>
+  //           <h5 style={titleStyle}>Approval Summary</h5>
+  //           <div style={{ padding: '5px 48px 12px' }}>
+  //             {summaryItems.map(([label, value]) => (
+  //               <div key={label} style={{ display: 'grid', gridTemplateColumns: '220px 20px 1fr', minHeight: 45 }}>
+  //                 <span style={{ color: pageText, fontSize: 16 }}>{label}</span>
+  //                 <span style={{ color: pageText, fontSize: 16 }}>:</span>
+  //                 <span style={{ color: pageText, fontSize: 16 }}>{value}</span>
+  //               </div>
+  //             ))}
+  //             <p style={{ color: pageText, fontSize: 16, margin: '8px 0 14px' }}>Inspector Comments:</p>
+  //             <div style={{ background: '#f8f8f8', borderRadius: 7, color: pageText, fontSize: 15, padding: '16px 28px' }}>
+  //               Most of the issues are resolved. Minor Maintenance are pending. Overall Condition is Good
+  //             </div>
+  //           </div>
+  //         </div>
 
-          <div style={cardStyle}>
-            <div className="d-flex align-items-center justify-content-between">
-              <h5 style={titleStyle}>Pending Repairs</h5>
-              <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16, paddingRight: 26 }}>
-                View All
-              </button>
-            </div>
-            <div style={{ padding: '18px 42px 22px' }}>
-              {pendingRepairs.map(([title, location, priority]) => (
-                <div key={title} className="d-flex align-items-center justify-content-between gap-3 mb-4">
-                  <div className="d-flex align-items-center gap-4">
-                    <span
-                      className="d-inline-flex align-items-center justify-content-center"
-                      style={{ background: '#f2c155', borderRadius: '50%', color: '#fff', fontWeight: 800, height: 22, width: 22 }}
-                    >
-                      !
-                    </span>
-                    <div>
-                      <p className="mb-2" style={{ color: pageText, fontSize: 15 }}>
-                        {title}
-                      </p>
-                      <p className="mb-0" style={{ color: pageText, fontSize: 15 }}>
-                        {location}
-                      </p>
-                    </div>
-                  </div>
-                  <span style={{ color: '#bd2d3a', fontSize: 15 }}>{priority}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  //         <div style={cardStyle}>
+  //           <div className="d-flex align-items-center justify-content-between">
+  //             <h5 style={titleStyle}>Pending Repairs</h5>
+  //             <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16, paddingRight: 26 }}>
+  //               View All
+  //             </button>
+  //           </div>
+  //           <div style={{ padding: '18px 42px 22px' }}>
+  //             {pendingRepairs.map(([title, location, priority]) => (
+  //               <div key={title} className="d-flex align-items-center justify-content-between gap-3 mb-4">
+  //                 <div className="d-flex align-items-center gap-4">
+  //                   <span
+  //                     className="d-inline-flex align-items-center justify-content-center"
+  //                     style={{ background: '#f2c155', borderRadius: '50%', color: '#fff', fontWeight: 800, height: 22, width: 22 }}
+  //                   >
+  //                     !
+  //                   </span>
+  //                   <div>
+  //                     <p className="mb-2" style={{ color: pageText, fontSize: 15 }}>
+  //                       {title}
+  //                     </p>
+  //                     <p className="mb-0" style={{ color: pageText, fontSize: 15 }}>
+  //                       {location}
+  //                     </p>
+  //                   </div>
+  //                 </div>
+  //                 <span style={{ color: '#bd2d3a', fontSize: 15 }}>{priority}</span>
+  //               </div>
+  //             ))}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default RepairApprovalPage;

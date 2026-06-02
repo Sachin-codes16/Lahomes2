@@ -109,131 +109,131 @@ const DocumentRow = ({ name, date }) => (
 );
 
 const TenantDetailsPage = () => {
-  return (
-    <div style={{ padding: 24 }}>
-      <div
-        style={{
-          display: 'grid',
-          gap: 24,
-          gridTemplateColumns: 'minmax(620px, 1.7fr) minmax(430px, 1fr)',
-          overflowX: 'auto',
-        }}
-      >
-        <div>
-          <div className="mb-4" style={cardStyle}>
-            <h5 style={titleStyle}>Tenant Details</h5>
+  // return (
+  //   <div style={{ padding: 24 }}>
+  //     <div
+  //       style={{
+  //         display: 'grid',
+  //         gap: 24,
+  //         gridTemplateColumns: 'minmax(620px, 1.7fr) minmax(430px, 1fr)',
+  //         overflowX: 'auto',
+  //       }}
+  //     >
+  //       <div>
+  //         <div className="mb-4" style={cardStyle}>
+  //           <h5 style={titleStyle}>Tenant Details</h5>
 
-            <div style={{ padding: '28px 55px 40px' }}>
-              <div className="d-flex align-items-start gap-4 mb-4">
-                <img
-                  alt="Bilal Ahmed"
-                  src="https://i.pravatar.cc/120?img=12"
-                  style={{ borderRadius: '50%', height: 74, objectFit: 'cover', width: 74 }}
-                />
-                <div>
-                  <div className="d-flex align-items-center gap-5 mb-3">
-                    <h4 className="mb-0" style={{ color: pageText, fontSize: 23, fontWeight: 700 }}>
-                      Bilal Ahmed
-                    </h4>
-                    <span style={{ color: pageText, fontSize: 15 }}>Active Tenant</span>
-                  </div>
-                  <div className="d-flex flex-wrap align-items-center gap-4 mb-2">
-                    <span className="d-inline-flex align-items-center gap-2" style={{ color: pageText, fontSize: 15 }}>
-                      <IconifyIcon icon="ri:phone-fill" width={16} height={16} />
-                      +911 1234567890
-                    </span>
-                    <span className="d-inline-flex align-items-center gap-2" style={{ color: pageText, fontSize: 15 }}>
-                      <IconifyIcon icon="logos:google-gmail" width={16} height={16} />
-                      bilalahmed@gmail.com
-                    </span>
-                  </div>
-                  <span className="d-inline-flex align-items-center gap-2" style={{ color: pageText, fontSize: 15 }}>
-                    <IconifyIcon icon="ri:user-location-line" width={16} height={16} />
-                    TNT-1245-4698
-                  </span>
-                </div>
-              </div>
+  //           <div style={{ padding: '28px 55px 40px' }}>
+  //             <div className="d-flex align-items-start gap-4 mb-4">
+  //               <img
+  //                 alt="Bilal Ahmed"
+  //                 src="https://i.pravatar.cc/120?img=12"
+  //                 style={{ borderRadius: '50%', height: 74, objectFit: 'cover', width: 74 }}
+  //               />
+  //               <div>
+  //                 <div className="d-flex align-items-center gap-5 mb-3">
+  //                   <h4 className="mb-0" style={{ color: pageText, fontSize: 23, fontWeight: 700 }}>
+  //                     Bilal Ahmed
+  //                   </h4>
+  //                   <span style={{ color: pageText, fontSize: 15 }}>Active Tenant</span>
+  //                 </div>
+  //                 <div className="d-flex flex-wrap align-items-center gap-4 mb-2">
+  //                   <span className="d-inline-flex align-items-center gap-2" style={{ color: pageText, fontSize: 15 }}>
+  //                     <IconifyIcon icon="ri:phone-fill" width={16} height={16} />
+  //                     +911 1234567890
+  //                   </span>
+  //                   <span className="d-inline-flex align-items-center gap-2" style={{ color: pageText, fontSize: 15 }}>
+  //                     <IconifyIcon icon="logos:google-gmail" width={16} height={16} />
+  //                     bilalahmed@gmail.com
+  //                   </span>
+  //                 </div>
+  //                 <span className="d-inline-flex align-items-center gap-2" style={{ color: pageText, fontSize: 15 }}>
+  //                   <IconifyIcon icon="ri:user-location-line" width={16} height={16} />
+  //                   TNT-1245-4698
+  //                 </span>
+  //               </div>
+  //             </div>
 
-              <div style={{ display: 'grid', gap: 70, gridTemplateColumns: '1fr 1fr' }}>
-                <div>
-                  <h6 className="mb-4" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
-                    Personal Information
-                  </h6>
-                  <InfoRows items={personalInfo} />
-                </div>
+  //             <div style={{ display: 'grid', gap: 70, gridTemplateColumns: '1fr 1fr' }}>
+  //               <div>
+  //                 <h6 className="mb-4" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
+  //                   Personal Information
+  //                 </h6>
+  //                 <InfoRows items={personalInfo} />
+  //               </div>
 
-                <div style={{ borderLeft: '1px solid #d6dce3', paddingLeft: 72 }}>
-                  <h6 className="mb-4" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
-                    Contact &amp; Address
-                  </h6>
-                  <InfoRows items={contactInfo} />
-                </div>
-              </div>
-            </div>
-          </div>
+  //               <div style={{ borderLeft: '1px solid #d6dce3', paddingLeft: 72 }}>
+  //                 <h6 className="mb-4" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
+  //                   Contact &amp; Address
+  //                 </h6>
+  //                 <InfoRows items={contactInfo} />
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
 
-          <div style={cardStyle}>
-            <h5 style={titleStyle}>Additional Information</h5>
-            <div
-              style={{
-                display: 'grid',
-                gap: '18px 34px',
-                gridTemplateColumns: '1fr 1fr 1fr',
-                padding: '22px 24px 24px',
-              }}
-            >
-              {additionalInfo.map(([label, value], index) => (
-                <div
-                  key={label}
-                  style={{
-                    ...rowStyle,
-                    borderRight: index % 3 === 2 ? 0 : '1px solid #d6dce3',
-                    gridTemplateColumns: '135px 16px 1fr',
-                  }}
-                >
-                  <span style={{ color: '#5f6470', fontSize: 16 }}>{label}</span>
-                  <span style={{ color: '#5f6470', fontSize: 16 }}>:</span>
-                  <span style={{ color: '#5f6470', fontSize: 16 }}>{value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+  //         <div style={cardStyle}>
+  //           <h5 style={titleStyle}>Additional Information</h5>
+  //           <div
+  //             style={{
+  //               display: 'grid',
+  //               gap: '18px 34px',
+  //               gridTemplateColumns: '1fr 1fr 1fr',
+  //               padding: '22px 24px 24px',
+  //             }}
+  //           >
+  //             {additionalInfo.map(([label, value], index) => (
+  //               <div
+  //                 key={label}
+  //                 style={{
+  //                   ...rowStyle,
+  //                   borderRight: index % 3 === 2 ? 0 : '1px solid #d6dce3',
+  //                   gridTemplateColumns: '135px 16px 1fr',
+  //                 }}
+  //               >
+  //                 <span style={{ color: '#5f6470', fontSize: 16 }}>{label}</span>
+  //                 <span style={{ color: '#5f6470', fontSize: 16 }}>:</span>
+  //                 <span style={{ color: '#5f6470', fontSize: 16 }}>{value}</span>
+  //               </div>
+  //             ))}
+  //           </div>
+  //         </div>
+  //       </div>
 
-        <div>
-          <div className="mb-4" style={cardStyle}>
-            <h5 style={titleStyle}>Documents</h5>
-            <div style={{ padding: '30px 46px 26px' }}>
-              {documents.map(([name, date]) => (
-                <DocumentRow key={name} name={name} date={date} />
-              ))}
-            </div>
-          </div>
+  //       <div>
+  //         <div className="mb-4" style={cardStyle}>
+  //           <h5 style={titleStyle}>Documents</h5>
+  //           <div style={{ padding: '30px 46px 26px' }}>
+  //             {documents.map(([name, date]) => (
+  //               <DocumentRow key={name} name={name} date={date} />
+  //             ))}
+  //           </div>
+  //         </div>
 
-          <div style={cardStyle}>
-            <h5 style={titleStyle}>Additional Notes</h5>
-            <div style={{ padding: '20px 20px 20px' }}>
-              <div
-                style={{
-                  background: '#fffaf3',
-                  border: '1px solid #f3d8ad',
-                  borderRadius: 8,
-                  padding: '30px 22px',
-                }}
-              >
-                <p className="mb-3" style={{ color: pageText, fontSize: 16, lineHeight: 1.45 }}>
-                  Tenant has Signed All the required documents and has agreed to the terms and conditions.
-                </p>
-                <p className="mb-0" style={{ color: pageText, fontSize: 12 }}>
-                  Added on 29 April 2026 by Ramesh Kumar
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  //         <div style={cardStyle}>
+  //           <h5 style={titleStyle}>Additional Notes</h5>
+  //           <div style={{ padding: '20px 20px 20px' }}>
+  //             <div
+  //               style={{
+  //                 background: '#fffaf3',
+  //                 border: '1px solid #f3d8ad',
+  //                 borderRadius: 8,
+  //                 padding: '30px 22px',
+  //               }}
+  //             >
+  //               <p className="mb-3" style={{ color: pageText, fontSize: 16, lineHeight: 1.45 }}>
+  //                 Tenant has Signed All the required documents and has agreed to the terms and conditions.
+  //               </p>
+  //               <p className="mb-0" style={{ color: pageText, fontSize: 12 }}>
+  //                 Added on 29 April 2026 by Ramesh Kumar
+  //               </p>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default TenantDetailsPage;

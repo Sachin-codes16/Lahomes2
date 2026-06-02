@@ -76,113 +76,113 @@ const CheckInDetailsPage = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].key);
   const ActivePage = tabs.find((tab) => tab.key === activeTab)?.component ?? OverviewPage;
 
-  return (
-    <div style={shellStyle}>
-      <div
-        className="d-flex flex-column flex-md-row align-items-md-start justify-content-between gap-3"
-        style={topBarStyle}
-      >
-        <div>
-          <h4 className="mb-2" style={{ color: pageText, fontSize: 18, fontWeight: 700 }}>
-            Check-In Details
-          </h4>
-          <div style={{ color: pageText, fontSize: 15 }}>Dashboard &gt; Check-in &gt;Check-In Details</div>
-        </div>
+  // return (
+  //   <div style={shellStyle}>
+  //     <div
+  //       className="d-flex flex-column flex-md-row align-items-md-start justify-content-between gap-3"
+  //       style={topBarStyle}
+  //     >
+  //       <div>
+  //         <h4 className="mb-2" style={{ color: pageText, fontSize: 18, fontWeight: 700 }}>
+  //           Check-In Details
+  //         </h4>
+  //         <div style={{ color: pageText, fontSize: 15 }}>Dashboard &gt; Check-in &gt;Check-In Details</div>
+  //       </div>
 
-        <div className="d-flex flex-wrap gap-2">
-          <Button
-            as={Link}
-            to="/check-in-list"
-            variant="outline-primary"
-            className="d-inline-flex align-items-center justify-content-center gap-2 px-4"
-            style={outlineButtonStyle}
-          >
-            <IconifyIcon icon="ri:arrow-left-s-line" width={18} height={18} />
-            <span>Back</span>
-          </Button>
-          <Button style={primaryButtonStyle}>Edit Details</Button>
-        </div>
-      </div>
+  //       <div className="d-flex flex-wrap gap-2">
+  //         <Button
+  //           as={Link}
+  //           to="/check-in-list"
+  //           variant="outline-primary"
+  //           className="d-inline-flex align-items-center justify-content-center gap-2 px-4"
+  //           style={outlineButtonStyle}
+  //         >
+  //           <IconifyIcon icon="ri:arrow-left-s-line" width={18} height={18} />
+  //           <span>Back</span>
+  //         </Button>
+  //         <Button style={primaryButtonStyle}>Edit Details</Button>
+  //       </div>
+  //     </div>
 
-      <div style={{ padding: '25px 13px' }}>
-        <div className="mb-4" style={{ ...cardStyle, padding: '25px 29px 22px' }}>
-          <div className="d-flex align-items-center gap-4 mb-3">
-            <span
-              style={{
-                background: '#e6fbea',
-                borderRadius: 8,
-                color: '#21865f',
-                display: 'inline-block',
-                fontSize: 16,
-                fontWeight: 700,
-                padding: '8px 16px',
-              }}
-            >
-              Completed
-            </span>
-            <span style={{ color: pageText, fontSize: 17, fontWeight: 700 }}>CL-12345665</span>
-          </div>
+  //     <div style={{ padding: '25px 13px' }}>
+  //       <div className="mb-4" style={{ ...cardStyle, padding: '25px 29px 22px' }}>
+  //         <div className="d-flex align-items-center gap-4 mb-3">
+  //           <span
+  //             style={{
+  //               background: '#e6fbea',
+  //               borderRadius: 8,
+  //               color: '#21865f',
+  //               display: 'inline-block',
+  //               fontSize: 16,
+  //               fontWeight: 700,
+  //               padding: '8px 16px',
+  //             }}
+  //           >
+  //             Completed
+  //           </span>
+  //           <span style={{ color: pageText, fontSize: 17, fontWeight: 700 }}>CL-12345665</span>
+  //         </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gap: 20,
-              gridTemplateColumns: 'repeat(8, minmax(120px, 1fr))',
-              overflowX: 'auto',
-            }}
-          >
-            {detailItems.map((item) => (
-              <div key={item.label} style={{ minWidth: 120 }}>
-                <p className="mb-2" style={{ color: pageText, fontSize: 15 }}>
-                  {item.label}
-                </p>
-                <p className="mb-0" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
-                  {item.value}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+  //         <div
+  //           style={{
+  //             display: 'grid',
+  //             gap: 20,
+  //             gridTemplateColumns: 'repeat(8, minmax(120px, 1fr))',
+  //             overflowX: 'auto',
+  //           }}
+  //         >
+  //           {detailItems.map((item) => (
+  //             <div key={item.label} style={{ minWidth: 120 }}>
+  //               <p className="mb-2" style={{ color: pageText, fontSize: 15 }}>
+  //                 {item.label}
+  //               </p>
+  //               <p className="mb-0" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
+  //                 {item.value}
+  //               </p>
+  //             </div>
+  //           ))}
+  //         </div>
+  //       </div>
 
-        <div className="mb-4" style={{ ...cardStyle, padding: '8px 10px', overflowX: 'auto' }}>
-          <div className="d-flex flex-nowrap gap-3" style={{ minWidth: 'max-content' }}>
-            {tabs.map((tab) => {
-              const isActive = activeTab === tab.key;
+  //       <div className="mb-4" style={{ ...cardStyle, padding: '8px 10px', overflowX: 'auto' }}>
+  //         <div className="d-flex flex-nowrap gap-3" style={{ minWidth: 'max-content' }}>
+  //           {tabs.map((tab) => {
+  //             const isActive = activeTab === tab.key;
 
-              return (
-                <Button
-                  key={tab.key}
-                  type="button"
-                  variant="light"
-                  onClick={() => setActiveTab(tab.key)}
-                  className="d-inline-flex align-items-center justify-content-center gap-2"
-                  style={{
-                    background: isActive ? '#f3f8fb' : '#fff',
-                    border: isActive ? '1px solid #c7d2dc' : '1px solid #edf0f4',
-                    borderRadius: 8,
-                    color: pageText,
-                    fontSize: 16,
-                    fontWeight: 700,
-                    height: 45,
-                    minWidth: tab.label.length > 12 ? 155 : 118,
-                    padding: '0 15px',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  <IconifyIcon icon={tab.icon} width={22} height={22} />
-                  <span>{tab.label}</span>
-                </Button>
-              );
-            })}
-          </div>
-        </div>
+  //             return (
+  //               <Button
+  //                 key={tab.key}
+  //                 type="button"
+  //                 variant="light"
+  //                 onClick={() => setActiveTab(tab.key)}
+  //                 className="d-inline-flex align-items-center justify-content-center gap-2"
+  //                 style={{
+  //                   background: isActive ? '#f3f8fb' : '#fff',
+  //                   border: isActive ? '1px solid #c7d2dc' : '1px solid #edf0f4',
+  //                   borderRadius: 8,
+  //                   color: pageText,
+  //                   fontSize: 16,
+  //                   fontWeight: 700,
+  //                   height: 45,
+  //                   minWidth: tab.label.length > 12 ? 155 : 118,
+  //                   padding: '0 15px',
+  //                   whiteSpace: 'nowrap',
+  //                 }}
+  //               >
+  //                 <IconifyIcon icon={tab.icon} width={22} height={22} />
+  //                 <span>{tab.label}</span>
+  //               </Button>
+  //             );
+  //           })}
+  //         </div>
+  //       </div>
 
-        <div style={{ ...cardStyle, minHeight: 290 }}>
-          <ActivePage />
-        </div>
-      </div>
-    </div>
-  );
+  //       <div style={{ ...cardStyle, minHeight: 290 }}>
+  //         <ActivePage />
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default CheckInDetailsPage;

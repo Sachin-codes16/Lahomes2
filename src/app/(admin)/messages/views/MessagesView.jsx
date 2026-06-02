@@ -7,16 +7,16 @@ import ChatApp from '../components/ChatApp';
 const MessagesView = () => {
   useMessagesController();
 
-  return (
-    <>
-      <PageTitle title="Messages" subName="Real Estate" />
-      <Row className="g-1">
-        <ChatProvider>
-          <ChatApp />
-        </ChatProvider>
-      </Row>
-    </>
-  );
+  // return (
+  //   <>
+  //     <PageTitle title="Messages" subName="Real Estate" />
+  //     <Row className="g-1">
+  //       <ChatProvider>
+  //         <ChatApp />
+  //       </ChatProvider>
+  //     </Row>
+  //   </>
+  // );
 };
 
 export default MessagesView;
