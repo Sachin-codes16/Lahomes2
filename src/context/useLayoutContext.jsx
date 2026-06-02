@@ -3,6 +3,15 @@ import useLocalStorage from '@/hooks/useLocalStorage';
 import useQueryParams from '@/hooks/useQueryParams';
 import { toggleDocumentAttribute } from '@/utils/layout';
 const ThemeContext = createContext(undefined);
+const CONFIG_STORAGE_KEY = '__LAHOMES_UI_CONFIG__';
+const DEFAULT_SETTINGS = {
+  theme: 'light',
+  topbarTheme: 'light',
+  menu: {
+    theme: 'dark',
+    size: 'default'
+  }
+};
 const useLayoutContext = () => {
   const context = useContext(ThemeContext);
   if (!context) {
@@ -14,16 +23,15 @@ const LayoutProvider = ({
   children
 }) => {
   const queryParams = useQueryParams();
-  const override = !!(queryParams.layout_theme || queryParams.topbar_theme || queryParams.menu_theme || queryParams.menu_size);
   const INIT_STATE = {
-    theme: queryParams['layout_theme'] ? queryParams['layout_theme'] : 'light',
-    topbarTheme: queryParams['topbar_theme'] ? queryParams['topbar_theme'] : 'light',
+    theme: DEFAULT_SETTINGS.theme,
+    topbarTheme: DEFAULT_SETTINGS.topbarTheme,
     menu: {
-      theme: queryParams['menu_theme'] ? queryParams['menu_theme'] : 'light',
-      size: queryParams['menu_size'] ? queryParams['menu_size'] : 'default'
+      theme: DEFAULT_SETTINGS.menu.theme,
+      size: queryParams['menu_size'] ? queryParams['menu_size'] : DEFAULT_SETTINGS.menu.size
     }
   };
-  const [settings, setSettings] = useLocalStorage('__REBACK_NEXT_CONFIG__', INIT_STATE, override);
+  const [settings, setSettings] = useLocalStorage(CONFIG_STORAGE_KEY, INIT_STATE, true);
   const [offcanvasStates, setOffcanvasStates] = useState({
     showThemeCustomizer: false,
     showActivityStream: false,
