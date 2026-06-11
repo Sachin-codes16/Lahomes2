@@ -16,10 +16,10 @@ const AnalyticsDashboardView = () => {
       <SocialSource />
 
       <Row className="g-3 mt-1">
-        <Col lg={8}>
+        <Col xl={7} lg={7}>
           <RecentCheckInOuts />
         </Col>
-        <Col lg={4}>
+        <Col xl={5} lg={5}>
           <UpcomingActivities />
         </Col>
       </Row>

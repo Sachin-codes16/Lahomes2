@@ -87,32 +87,4 @@ export const MENU_ITEMS = [
     url: '/occupancy-report',
     icon: 'ri:clipboard-line',
   },
-  {
-    key: 'facilities-title',
-    label: 'FACILITIES',
-    isTitle: true,
-  },
-  {
-    key: 'facilities-master',
-    label: 'Facilities Master',
-    url: '/facilities-master',
-    icon: 'ri:building-4-line',
-  },
-  {
-    key: 'agents-title',
-    label: 'AGENTS',
-    isTitle: true,
-  },
-  {
-    key: 'agent-list',
-    label: 'Agent List',
-    url: '/agents/list-view',
-    icon: 'ri:user-3-line',
-  },
-  {
-    key: 'agent-grid',
-    label: 'Agent Grid',
-    url: '/agents/grid-view',
-    icon: 'ri:grid-line',
-  },
 ];

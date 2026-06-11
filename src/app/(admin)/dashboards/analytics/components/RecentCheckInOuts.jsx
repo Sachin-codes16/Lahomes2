@@ -9,9 +9,9 @@ const RecentCheckInOuts = () => {
   return (
     <Card className="shadow-sm border-0 mb-4 h-100" style={{ borderRadius: '8px' }}>
       <div className="card-header bg-transparent p-0 border-bottom">
-        <div className="d-flex" style={{ paddingLeft: '1.5rem', minHeight: '64px' }}>
+        <div className="d-flex" style={{ paddingLeft: '1.5rem', minHeight: '54px' }}>
           <button
-            className={`btn btn-link text-decoration-none py-3 px-3 position-relative fw-semibold border-0 ${
+            className={`btn btn-link text-decoration-none py-2 px-3 position-relative fw-semibold border-0 ${
               activeTab === 'check-ins' ? 'text-primary' : 'text-muted'
             }`}
             onClick={() => setActiveTab('check-ins')}
@@ -36,7 +36,7 @@ const RecentCheckInOuts = () => {
             )}
           </button>
           <button
-            className={`btn btn-link text-decoration-none py-3 px-3 position-relative fw-semibold border-0 ms-2 ${
+            className={`btn btn-link text-decoration-none py-2 px-3 position-relative fw-semibold border-0 ms-2 ${
               activeTab === 'check-outs' ? 'text-primary' : 'text-muted'
             }`}
             onClick={() => setActiveTab('check-outs')}
@@ -63,21 +63,21 @@ const RecentCheckInOuts = () => {
         </div>
       </div>
 
-      <CardBody style={{ padding: '28px 16px 0' }}>
+      <CardBody style={{ padding: '20px 16px 0' }}>
         <div className="table-responsive border" style={{ borderRadius: '8px', overflow: 'hidden' }}>
           <table className="table align-middle text-nowrap table-hover table-centered mb-0" style={{ borderCollapse: 'collapse' }}>
             <thead style={{ backgroundColor: '#fbfcfe' }}>
               <tr>
-                <th className="py-3" style={{ paddingLeft: '1.25rem', color: '#516986', fontWeight: '600', fontSize: '15px' }}>
+                <th className="py-2" style={{ paddingLeft: '1.25rem', color: '#516986', fontWeight: '600', fontSize: '15px' }}>
                   {activeTab === 'check-ins' ? 'Check-In ID' : 'Check-Out ID'}
                 </th>
-                <th className="py-3" style={{ color: '#516986', fontWeight: '600', fontSize: '15px' }}>Tenant Name</th>
-                <th className="py-3" style={{ color: '#516986', fontWeight: '600', fontSize: '15px' }}>Property</th>
-                <th className="py-3" style={{ color: '#516986', fontWeight: '600', fontSize: '15px' }}>
+                <th className="py-2" style={{ color: '#516986', fontWeight: '600', fontSize: '15px' }}>Tenant Name</th>
+                <th className="py-2" style={{ color: '#516986', fontWeight: '600', fontSize: '15px' }}>Property</th>
+                <th className="py-2" style={{ color: '#516986', fontWeight: '600', fontSize: '15px' }}>
                   {activeTab === 'check-ins' ? 'Check-In Date' : 'Check-Out Date'}
                 </th>
-                <th className="py-3" style={{ color: '#516986', fontWeight: '600', fontSize: '15px' }}>Status</th>
-                <th className="py-3" style={{ paddingRight: '1.25rem', color: '#516986', fontWeight: '600', fontSize: '15px' }}>
+                <th className="py-2" style={{ color: '#516986', fontWeight: '600', fontSize: '15px' }}>Status</th>
+                <th className="py-2" style={{ paddingRight: '1.25rem', color: '#516986', fontWeight: '600', fontSize: '15px' }}>
                   {activeTab === 'check-ins' ? 'Assigned To' : 'Days Left'}
                 </th>
               </tr>
@@ -86,17 +86,17 @@ const RecentCheckInOuts = () => {
               {activeTab === 'check-ins'
                 ? recentCheckIns.map((item, idx) => (
                     <tr key={idx} className="border-bottom border-light">
-                      <td className="py-3" style={{ paddingLeft: '1.25rem', color: '#516986', fontSize: '14px' }}>
+                      <td className="py-2" style={{ paddingLeft: '1.25rem', color: '#516986', fontSize: '14px' }}>
                         {item.id}
                       </td>
-                      <td className="py-3">
+                      <td className="py-2">
                         <span className="fw-medium" style={{ color: '#516986', fontSize: '14px' }}>
                           {item.tenantName}
                         </span>
                       </td>
-                      <td className="py-3" style={{ color: '#6f829d', fontSize: '14px' }}>{item.property}</td>
-                      <td className="py-3" style={{ color: '#6f829d', fontSize: '14px' }}>{item.date}</td>
-                      <td className="py-3">
+                      <td className="py-2" style={{ color: '#6f829d', fontSize: '14px' }}>{item.property}</td>
+                      <td className="py-2" style={{ color: '#6f829d', fontSize: '14px' }}>{item.date}</td>
+                      <td className="py-2">
                         <span
                           style={{
                             color:
@@ -112,24 +112,24 @@ const RecentCheckInOuts = () => {
                           {item.status}
                         </span>
                       </td>
-                      <td className="py-3" style={{ paddingRight: '1.25rem', color: '#6f829d', fontSize: '14px' }}>
+                      <td className="py-2" style={{ paddingRight: '1.25rem', color: '#6f829d', fontSize: '14px' }}>
                         {item.assignedTo}
                       </td>
                     </tr>
                   ))
                 : recentCheckOuts.map((item, idx) => (
                     <tr key={idx} className="border-bottom border-light">
-                      <td className="py-3" style={{ paddingLeft: '1.25rem', color: '#516986', fontSize: '14px' }}>
+                      <td className="py-2" style={{ paddingLeft: '1.25rem', color: '#516986', fontSize: '14px' }}>
                         {item.id}
                       </td>
-                      <td className="py-3">
+                      <td className="py-2">
                         <span className="fw-medium" style={{ color: '#516986', fontSize: '14px' }}>
                           {item.tenantName}
                         </span>
                       </td>
-                      <td className="py-3" style={{ color: '#6f829d', fontSize: '14px' }}>{item.property}</td>
-                      <td className="py-3" style={{ color: '#6f829d', fontSize: '14px' }}>{item.date}</td>
-                      <td className="py-3">
+                      <td className="py-2" style={{ color: '#6f829d', fontSize: '14px' }}>{item.property}</td>
+                      <td className="py-2" style={{ color: '#6f829d', fontSize: '14px' }}>{item.date}</td>
+                      <td className="py-2">
                         <span
                           style={{
                             color:
@@ -145,7 +145,7 @@ const RecentCheckInOuts = () => {
                           {item.status}
                         </span>
                       </td>
-                      <td className="py-3" style={{ paddingRight: '1.25rem', color: '#6f829d', fontSize: '14px' }}>
+                      <td className="py-2" style={{ paddingRight: '1.25rem', color: '#6f829d', fontSize: '14px' }}>
                         {item.daysLeft}
                       </td>
                     </tr>
@@ -154,7 +154,7 @@ const RecentCheckInOuts = () => {
           </table>
         </div>
 
-        <div className="card-footer bg-transparent border-0 py-3 text-center">
+        <div className="card-footer bg-transparent border-0 py-2 text-center">
           <Link
             to={activeTab === 'check-ins' ? '/check-in-list' : '/check-out-list'}
             className="fw-semibold text-decoration-none fs-14 transition-all"

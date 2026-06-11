@@ -37,7 +37,7 @@ const page = () => {
                     textTransform: 'uppercase'
                   }}
                 >
-                  MARKETING DEPARTMENT
+                  CHECK-IN / CHECK-OUT DEPARTMENT
                 </span>
               </div>
             </div>

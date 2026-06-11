@@ -6,11 +6,11 @@ const LogoBox = () => {
   return <div className="logo-box">
       <Link to="/dashboards" className="logo-dark">
         <img width={28} height={28} src={logoSm} className="logo-sm" alt="logo sm" />
-        <img width={118} height={30} src={logoDark} className="logo-lg" alt="logo dark" />
+        <img width={150} height={38} src={logoDark} className="logo-lg" alt="logo dark" />
       </Link>
       <Link to="/dashboards" className="logo-light">
         <img width={28} height={28} src={logoSm} className="logo-sm" alt="logo sm" />
-        <img width={118} height={30} src={logoLight} className="logo-lg" alt="logo light" />
+        <img width={150} height={38} src={logoLight} className="logo-lg" alt="logo light" />
       </Link>
     </div>;
 };

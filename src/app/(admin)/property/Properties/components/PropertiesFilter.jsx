@@ -1,5 +1,4 @@
 import ChoicesFormInput from '@/components/from/ChoicesFormInput';
-import Nouislider from 'nouislider-react';
 import { useState } from 'react';
 import { Button, Card, CardBody, CardFooter, CardHeader, CardTitle, Col, Row } from 'react-bootstrap';
 
@@ -44,10 +43,6 @@ const CheckOption = ({ id, label, defaultChecked = false }) => (
 
 const PropertiesFilter = () => {
   const [selectedValue, setSelectedValue] = useState([1000, 10000]);
-
-  const handleSliderChange = values => {
-    setSelectedValue(values.map(value => Math.round(Number(value))));
-  };
 
   const handleInputChange = (event, index) => {
     const value = Number(event.target.value.replace(/\D/g, '')) || 0;
@@ -139,31 +134,27 @@ const PropertiesFilter = () => {
           }
 
           .properties-filter-card .noUi-target {
-            background: #eef2f6;
-            border: 0;
-            box-shadow: none;
+            align-items: center;
+            display: flex;
             height: 7px;
             margin: 18px 8px 22px;
           }
 
           .properties-filter-card .noUi-connect {
             background: #604ae3;
+            border-radius: 999px;
+            display: block;
+            height: 7px;
+            width: 100%;
           }
 
           .properties-filter-card .noUi-handle {
             background: #604ae3;
-            border: 3px solid #604ae3;
             border-radius: 50%;
-            box-shadow: none;
+            display: block;
+            flex: 0 0 18px;
             height: 18px;
-            right: -9px;
-            top: -6px;
             width: 18px;
-          }
-
-          .properties-filter-card .noUi-handle:before,
-          .properties-filter-card .noUi-handle:after {
-            display: none;
           }
 
           .bedroom-options {
@@ -221,7 +212,11 @@ const PropertiesFilter = () => {
 
           <div className="filter-section">
             <h5 className="filter-label">Custom Price Range :</h5>
-            <Nouislider range={{ min: 1000, max: 10000 }} start={selectedValue} connect className="product-price-range" onSlide={handleSliderChange} />
+            <div className="noUi-target" aria-hidden="true">
+              <span className="noUi-handle" />
+              <span className="noUi-connect" />
+              <span className="noUi-handle" />
+            </div>
             <div className="d-flex align-items-center gap-2">
               <input className="form-control text-center" type="text" value={`OMR ${selectedValue[0]}`} onChange={event => handleInputChange(event, 0)} />
               <span className="filter-subtitle fw-semibold">to</span>

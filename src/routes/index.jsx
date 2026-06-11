@@ -34,6 +34,8 @@ const ComingSoon = lazy(() => import('@/app/(other)/coming-soon/page'));
 const Maintenance = lazy(() => import('@/app/(other)/maintenance/page'));
 const Error404 = lazy(() => import('@/app/(other)/(error-pages)/404-error/page'));
 const ProfileSettingPage = lazy(() => import('../components/layout/TopNavigationBar/components/ProfileSettingPage.jsx'));
+const SignInPage = lazy(() => import('@/app/(auth)/sign-in/page.jsx'));
+const SignUpPage = lazy(() => import('@/app/(auth)/sign-up/page.jsx'));
 
 const initialRoutes = [{
   path: '/',
@@ -73,6 +75,8 @@ const routes = [
 ];
 
 export const authRoutes = [
+  { name: 'Sign In', path: '/auth/sign-in', element: <SignInPage /> },
+  { name: 'Sign Up', path: '/auth/sign-up', element: <SignUpPage /> },
   { name: '404 Error', path: '/404-error', element: <Error404 /> },
   { name: 'Maintenance', path: '/maintenance', element: <Maintenance /> },
   { name: 'Coming Soon', path: '/coming-soon', element: <ComingSoon /> }

@@ -102,173 +102,173 @@ const DetailRows = ({ items }) => (
 );
 
 const AgreementPage = () => {
-  // return (
-  //   <div style={{ padding: 24 }}>
-  //     <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'minmax(640px, 1.7fr) minmax(430px, 1fr)' }}>
-  //       <div style={cardStyle}>
-  //         <h5 style={titleStyle}>Agreement Details</h5>
-  //         <div style={{ display: 'grid', gap: 52, gridTemplateColumns: '1fr 1fr', padding: '26px 52px 20px' }}>
-  //           <DetailRows items={agreementLeft} />
-  //           <DetailRows items={agreementRight} />
-  //         </div>
-  //       </div>
+  return (
+    <div style={{ padding: 24 }}>
+      <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'minmax(640px, 1.7fr) minmax(430px, 1fr)' }}>
+        <div style={cardStyle}>
+          <h5 style={titleStyle}>Agreement Details</h5>
+          <div style={{ display: 'grid', gap: 52, gridTemplateColumns: '1fr 1fr', padding: '26px 52px 20px' }}>
+            <DetailRows items={agreementLeft} />
+            <DetailRows items={agreementRight} />
+          </div>
+        </div>
 
-  //       <div style={cardStyle}>
-  //         <h5 style={titleStyle}>Agreement Timeline</h5>
-  //         <div style={{ padding: '22px 32px 24px' }}>
-  //           {timeline.map(([title, description, date, by], index) => (
-  //             <div
-  //               key={title}
-  //               style={{
-  //                 display: 'grid',
-  //                 gap: 20,
-  //                 gridTemplateColumns: '34px 1fr 180px',
-  //                 minHeight: 76,
-  //                 position: 'relative',
-  //               }}
-  //             >
-  //               {index < timeline.length - 1 && (
-  //                 <span style={{ background: '#64c986', height: 76, left: 15, position: 'absolute', top: 26, width: 1 }} />
-  //               )}
-  //               <span
-  //                 className="d-inline-flex align-items-center justify-content-center"
-  //                 style={{
-  //                   background: index === timeline.length - 1 ? '#05a9df' : '#37b875',
-  //                   borderRadius: '50%',
-  //                   color: '#fff',
-  //                   height: 30,
-  //                   position: 'relative',
-  //                   width: 30,
-  //                   zIndex: 1,
-  //                 }}
-  //               >
-  //                 <IconifyIcon icon="ri:check-line" width={20} height={20} />
-  //               </span>
-  //               <div>
-  //                 <p className="mb-2" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
-  //                   {title}
-  //                 </p>
-  //                 <p className="mb-0" style={{ color: bodyText, fontSize: 15 }}>
-  //                   {description}
-  //                 </p>
-  //               </div>
-  //               <div className="text-end">
-  //                 <p className="mb-2" style={{ color: bodyText, fontSize: 15 }}>
-  //                   {date}
-  //                 </p>
-  //                 <p className="mb-0" style={{ color: bodyText, fontSize: 15 }}>
-  //                   {by}
-  //                 </p>
-  //               </div>
-  //             </div>
-  //           ))}
-  //         </div>
-  //       </div>
-  //     </div>
+        <div style={cardStyle}>
+          <h5 style={titleStyle}>Agreement Timeline</h5>
+          <div style={{ padding: '22px 32px 24px' }}>
+            {timeline.map(([title, description, date, by], index) => (
+              <div
+                key={title}
+                style={{
+                  display: 'grid',
+                  gap: 20,
+                  gridTemplateColumns: '34px 1fr 180px',
+                  minHeight: 76,
+                  position: 'relative',
+                }}
+              >
+                {index < timeline.length - 1 && (
+                  <span style={{ background: '#64c986', height: 76, left: 15, position: 'absolute', top: 26, width: 1 }} />
+                )}
+                <span
+                  className="d-inline-flex align-items-center justify-content-center"
+                  style={{
+                    background: index === timeline.length - 1 ? '#05a9df' : '#37b875',
+                    borderRadius: '50%',
+                    color: '#fff',
+                    height: 30,
+                    position: 'relative',
+                    width: 30,
+                    zIndex: 1,
+                  }}
+                >
+                  <IconifyIcon icon="ri:check-line" width={20} height={20} />
+                </span>
+                <div>
+                  <p className="mb-2" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
+                    {title}
+                  </p>
+                  <p className="mb-0" style={{ color: bodyText, fontSize: 15 }}>
+                    {description}
+                  </p>
+                </div>
+                <div className="text-end">
+                  <p className="mb-2" style={{ color: bodyText, fontSize: 15 }}>
+                    {date}
+                  </p>
+                  <p className="mb-0" style={{ color: bodyText, fontSize: 15 }}>
+                    {by}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-  //     <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'minmax(600px, 1.2fr) minmax(470px, 0.95fr)', marginTop: 24 }}>
-  //       <div style={cardStyle}>
-  //         <h5 style={titleStyle}>Rent &amp; Payment Summary</h5>
-  //         <div style={{ padding: '2px 16px 24px' }}>
-  //           <div style={{ display: 'grid', gap: 20, gridTemplateColumns: 'repeat(4, minmax(160px, 1fr))', marginBottom: 24 }}>
-  //             {summaryCards.map(([label, value, icon]) => (
-  //               <div key={label} className="d-flex align-items-center gap-3" style={{ background: '#f0eefb', borderRadius: 6, padding: '18px 16px' }}>
-  //                 <span className="d-inline-flex align-items-center justify-content-center" style={{ background: '#fff', borderRadius: 5, height: 35, width: 35 }}>
-  //                   <IconifyIcon icon={icon} width={24} height={24} />
-  //                 </span>
-  //                 <div>
-  //                   <p className="mb-1" style={{ color: bodyText, fontSize: 16 }}>
-  //                     {label}
-  //                   </p>
-  //                   <p className="mb-0" style={{ color: '#000', fontSize: 18, fontWeight: 800 }}>
-  //                     {value}
-  //                   </p>
-  //                 </div>
-  //               </div>
-  //             ))}
-  //           </div>
+      <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'minmax(600px, 1.2fr) minmax(470px, 0.95fr)', marginTop: 24 }}>
+        <div style={cardStyle}>
+          <h5 style={titleStyle}>Rent &amp; Payment Summary</h5>
+          <div style={{ padding: '2px 16px 24px' }}>
+            <div style={{ display: 'grid', gap: 20, gridTemplateColumns: 'repeat(4, minmax(160px, 1fr))', marginBottom: 24 }}>
+              {summaryCards.map(([label, value, icon]) => (
+                <div key={label} className="d-flex align-items-center gap-3" style={{ background: '#f0eefb', borderRadius: 6, padding: '18px 16px' }}>
+                  <span className="d-inline-flex align-items-center justify-content-center" style={{ background: '#fff', borderRadius: 5, height: 35, width: 35 }}>
+                    <IconifyIcon icon={icon} width={24} height={24} />
+                  </span>
+                  <div>
+                    <p className="mb-1" style={{ color: bodyText, fontSize: 16 }}>
+                      {label}
+                    </p>
+                    <p className="mb-0" style={{ color: '#000', fontSize: 18, fontWeight: 800 }}>
+                      {value}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-  //           <div style={{ border: '1px solid #e4e4e4', borderRadius: 8, overflow: 'hidden' }}>
-  //             <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-  //               <thead>
-  //                 <tr>
-  //                   {['Description', 'Amount (OMR)', 'Status', 'Payment Date', 'Receipt / Ref No.'].map((head) => (
-  //                     <th key={head} style={{ color: pageText, fontSize: 16, fontWeight: 700, padding: '16px 22px', textAlign: 'left' }}>
-  //                       {head}
-  //                     </th>
-  //                   ))}
-  //                 </tr>
-  //               </thead>
-  //               <tbody>
-  //                 {paymentRows.map((row) => (
-  //                   <tr key={row[0]}>
-  //                     {row.map((value) => (
-  //                       <td key={`${row[0]}-${value}`} style={{ color: bodyText, fontSize: 16, padding: '10px 22px' }}>
-  //                         {value}
-  //                       </td>
-  //                     ))}
-  //                   </tr>
-  //                 ))}
-  //               </tbody>
-  //             </table>
-  //           </div>
+            <div style={{ border: '1px solid #e4e4e4', borderRadius: 8, overflow: 'hidden' }}>
+              <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+                <thead>
+                  <tr>
+                    {['Description', 'Amount (OMR)', 'Status', 'Payment Date', 'Receipt / Ref No.'].map((head) => (
+                      <th key={head} style={{ color: pageText, fontSize: 16, fontWeight: 700, padding: '16px 22px', textAlign: 'left' }}>
+                        {head}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {paymentRows.map((row) => (
+                    <tr key={row[0]}>
+                      {row.map((value) => (
+                        <td key={`${row[0]}-${value}`} style={{ color: bodyText, fontSize: 16, padding: '10px 22px' }}>
+                          {value}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-  //           <p style={{ color: '#6d96d5', fontSize: 17, fontWeight: 700, margin: '22px 0 0 22px' }}>
-  //             Total Paid : <span style={{ marginLeft: 48 }}>7500 OMR</span>
-  //           </p>
-  //         </div>
-  //       </div>
+            <p style={{ color: '#6d96d5', fontSize: 17, fontWeight: 700, margin: '22px 0 0 22px' }}>
+              Total Paid : <span style={{ marginLeft: 48 }}>7500 OMR</span>
+            </p>
+          </div>
+        </div>
 
-  //       <div style={cardStyle}>
-  //         <div className="d-flex align-items-center justify-content-between">
-  //           <h5 style={titleStyle}>Agreement Documents</h5>
-  //           <Button variant="outline-secondary" style={{ borderColor: '#b8bec6', borderRadius: 8, color: pageText, marginRight: 24 }}>
-  //             Upload Documents
-  //           </Button>
-  //         </div>
+        <div style={cardStyle}>
+          <div className="d-flex align-items-center justify-content-between">
+            <h5 style={titleStyle}>Agreement Documents</h5>
+            <Button variant="outline-secondary" style={{ borderColor: '#b8bec6', borderRadius: 8, color: pageText, marginRight: 24 }}>
+              Upload Documents
+            </Button>
+          </div>
 
-  //         <div style={{ padding: '16px 16px 24px' }}>
-  //           <div style={{ border: '1px solid #e4e4e4', borderRadius: 8, padding: '15px 12px' }}>
-  //             <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-  //               <thead>
-  //                 <tr>
-  //                   {['Document Name', 'Uploaded On', 'Uploaded By', 'Actions'].map((head) => (
-  //                     <th key={head} style={{ color: pageText, fontSize: 16, fontWeight: 700, padding: '0 8px 16px', textAlign: 'left' }}>
-  //                       {head}
-  //                     </th>
-  //                   ))}
-  //                 </tr>
-  //               </thead>
-  //               <tbody>
-  //                 {documentRows.map(([name, uploadedOn, uploadedBy, icon]) => (
-  //                   <tr key={name}>
-  //                     <td style={{ color: bodyText, fontSize: 16, padding: '8px' }}>
-  //                       <IconifyIcon icon={icon} width={20} height={20} style={{ marginRight: 12 }} />
-  //                       {name}
-  //                     </td>
-  //                     <td style={{ color: bodyText, fontSize: 16, padding: '8px' }}>{uploadedOn}</td>
-  //                     <td style={{ color: bodyText, fontSize: 16, padding: '8px' }}>{uploadedBy}</td>
-  //                     <td style={{ padding: '8px' }}>
-  //                       <span style={{ border: '1px solid #cbd0d6', borderRadius: 4, display: 'inline-block', height: 21, marginRight: 8, width: 27 }} />
-  //                       <span style={{ border: '1px solid #cbd0d6', borderRadius: 4, display: 'inline-block', height: 21, width: 27 }} />
-  //                     </td>
-  //                   </tr>
-  //                 ))}
-  //               </tbody>
-  //             </table>
-  //           </div>
+          <div style={{ padding: '16px 16px 24px' }}>
+            <div style={{ border: '1px solid #e4e4e4', borderRadius: 8, padding: '15px 12px' }}>
+              <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+                <thead>
+                  <tr>
+                    {['Document Name', 'Uploaded On', 'Uploaded By', 'Actions'].map((head) => (
+                      <th key={head} style={{ color: pageText, fontSize: 16, fontWeight: 700, padding: '0 8px 16px', textAlign: 'left' }}>
+                        {head}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {documentRows.map(([name, uploadedOn, uploadedBy, icon]) => (
+                    <tr key={name}>
+                      <td style={{ color: bodyText, fontSize: 16, padding: '8px' }}>
+                        <IconifyIcon icon={icon} width={20} height={20} style={{ marginRight: 12 }} />
+                        {name}
+                      </td>
+                      <td style={{ color: bodyText, fontSize: 16, padding: '8px' }}>{uploadedOn}</td>
+                      <td style={{ color: bodyText, fontSize: 16, padding: '8px' }}>{uploadedBy}</td>
+                      <td style={{ padding: '8px' }}>
+                        <span style={{ border: '1px solid #cbd0d6', borderRadius: 4, display: 'inline-block', height: 21, marginRight: 8, width: 27 }} />
+                        <span style={{ border: '1px solid #cbd0d6', borderRadius: 4, display: 'inline-block', height: 21, width: 27 }} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-  //           <div style={{ background: '#fff7f7', border: '1px solid #f0cfd0', borderRadius: 8, marginTop: 24, padding: '16px 14px' }}>
-  //             <p style={{ color: pageText, fontSize: 16, fontWeight: 700, marginBottom: 12 }}>Agreement Notes</p>
-  //             <div style={{ background: '#fff', borderRadius: 8, color: '#666', fontSize: 15, padding: '18px 26px' }}>
-  //               Standard internal residential lease agreement signed by both tenant &amp; company
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+            <div style={{ background: '#fff7f7', border: '1px solid #f0cfd0', borderRadius: 8, marginTop: 24, padding: '16px 14px' }}>
+              <p style={{ color: pageText, fontSize: 16, fontWeight: 700, marginBottom: 12 }}>Agreement Notes</p>
+              <div style={{ background: '#fff', borderRadius: 8, color: '#666', fontSize: 15, padding: '18px 26px' }}>
+                Standard internal residential lease agreement signed by both tenant &amp; company
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AgreementPage;

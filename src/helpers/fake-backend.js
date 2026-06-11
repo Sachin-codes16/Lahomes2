@@ -1,6 +1,8 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-const mock = new MockAdapter(axios);
+const mock = new MockAdapter(axios, {
+  onNoMatch: 'passthrough'
+});
 export const fakeUsers = [{
   id: '1',
   email: 'user@demo.com',

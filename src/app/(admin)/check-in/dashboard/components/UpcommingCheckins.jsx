@@ -17,7 +17,7 @@ const UpcomingCheckIns = ({ data = [] }) => {
             color: "#526b89",
             fontWeight: 700,
             fontSize: 18,
-            padding: "28px 22px 22px",
+            padding: "22px 22px 18px",
             borderBottom: "1px solid #e6e8ec",
           }}
         >
@@ -32,15 +32,15 @@ const UpcomingCheckIns = ({ data = [] }) => {
                 display: "flex",
                 alignItems: "center",
                 gap: 18,
-                padding: "16px 23px",
-                minHeight: 123,
+                padding: "14px 23px",
+                minHeight: 108,
                 borderBottom: i < data.length - 1 ? "1px solid #edf0f3" : "none",
               }}
             >
               <div
                 style={{
-                  width: 90,
-                  height: 90,
+                  width: 86,
+                  height: 86,
                   border: "2px solid #e0e0e0",
                   borderRadius: 8,
                   display: "flex",
@@ -95,7 +95,7 @@ const UpcomingCheckIns = ({ data = [] }) => {
       <div
         style={{
           textAlign: "center",
-          padding: "22px 14px 20px",
+        padding: "16px 14px 16px",
           borderTop: "1px solid #edf0f3",
           marginTop: "auto",
         }}

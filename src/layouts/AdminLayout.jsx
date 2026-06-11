@@ -1,5 +1,4 @@
 import FallbackLoading from '@/components/FallbackLoading';
-import Footer from '@/components/layout/Footer';
 import Preloader from '@/components/Preloader';
 import { lazy, Suspense } from 'react';
 import { Container } from 'react-bootstrap';
@@ -19,7 +18,6 @@ const AdminLayout = ({
         <Container fluid>
           <Suspense fallback={<Preloader />}>{children}</Suspense>
         </Container>
-        <Footer />
       </div>
     </div>;
 };

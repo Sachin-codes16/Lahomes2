@@ -351,6 +351,7 @@ export const checkInOutOptions = {
     axisBorder: { show: true, color: '#8e969f', height: 2 },
     axisTicks: { show: false },
     labels: {
+      offsetY: 8,
       style: {
         colors: '#4f5965',
         fontSize: '12px',
@@ -395,7 +396,7 @@ export const checkInOutOptions = {
     padding: {
       top: -4,
       right: 4,
-      bottom: 0,
+      bottom: 2,
       left: 2
     }
   },

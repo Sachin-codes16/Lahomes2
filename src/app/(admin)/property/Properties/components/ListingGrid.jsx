@@ -1,10 +1,87 @@
 import IconifyIcon from '@/components/wrappers/IconifyIcon';
-import { getAllProperty } from '@/helpers/data';
-import { useFetchData } from '@/hooks/useFetchData';
+import api from '@/helpers/api';
+import { propertyData } from '@/assets/data/other';
+import { useEffect, useState } from 'react';
 import { Card, CardBody, CardFooter, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 const propertyStatuses = ['Rented', 'Vacant', 'Rented', 'Rented', 'Vacant', 'Rented'];
+
+const getFirstValue = (item, keys, fallback = '') => {
+  for (const key of keys) {
+    if (item?.[key] !== undefined && item?.[key] !== null && item?.[key] !== '') {
+      return item[key];
+    }
+  }
+
+  return fallback;
+};
+
+const getPropertiesFromResponse = responseData => {
+  if (Array.isArray(responseData)) return responseData;
+  if (Array.isArray(responseData?.data)) return responseData.data;
+  if (Array.isArray(responseData?.data?.data)) return responseData.data.data;
+  if (Array.isArray(responseData?.results)) return responseData.results;
+  if (Array.isArray(responseData?.properties)) return responseData.properties;
+  if (Array.isArray(responseData?.property)) return responseData.property;
+
+  return [];
+};
+
+const getPropertyImage = (item, fallbackImage) => {
+  const image = getFirstValue(item, ['image', 'photo', 'property_image', 'propertyImage', 'thumbnail', 'cover_image'], '');
+
+  if (!image || ['string', 'n/a', 'na', 'null', 'undefined'].includes(String(image).trim().toLowerCase())) {
+    return fallbackImage;
+  }
+
+  if (typeof image === 'string' && image.startsWith('/')) {
+    return `https://essdemo.alwijha.net${image}`;
+  }
+
+  if (typeof image === 'string' && !image.startsWith('http')) {
+    return `https://essdemo.alwijha.net/${image.replace(/^\/+/, '')}`;
+  }
+
+  return image;
+};
+
+const getApiErrorMessage = err => {
+  const data = err?.response?.data;
+
+  if (typeof data === 'string') {
+    if (data.includes('AnonymousUser')) {
+      return 'Authentication token missing or invalid. Please set a valid token in localStorage.';
+    }
+
+    if (data.includes('<!DOCTYPE html>')) {
+      return 'Server error while loading properties. Please check the API response in Network tab.';
+    }
+
+    return data;
+  }
+
+  return data?.message || data?.detail || data?.error || err?.message || 'Unable to load properties.';
+};
+
+const mapProperty = (item, idx) => {
+  const fallbackProperty = propertyData[idx % propertyData.length];
+
+  return {
+    id: getFirstValue(item, ['id', 'property_id', 'propertyId'], fallbackProperty.id),
+    name: getFirstValue(item, ['name', 'title', 'property_name', 'propertyName', 'buildingDetails'], fallbackProperty.name),
+    location: getFirstValue(item, ['location', 'address', 'property_location', 'propertyLocation', 'block'], fallbackProperty.location),
+    image: getPropertyImage(item, fallbackProperty.image),
+    icon: getFirstValue(item, ['icon'], fallbackProperty.icon),
+    beds: getFirstValue(item, ['beds', 'bedrooms', 'bedroom', 'no_of_bedrooms'], fallbackProperty.beds),
+    bath: getFirstValue(item, ['bath', 'baths', 'bathrooms', 'bathroom', 'no_of_bathrooms'], fallbackProperty.bath),
+    size: getFirstValue(item, ['size', 'area', 'property_size', 'square_feet', 'sqft', 'dimensionAreaSqft'], fallbackProperty.size),
+    flor: getFirstValue(item, ['flor', 'floor', 'floors', 'no_of_floors'], fallbackProperty.flor),
+    price: getFirstValue(item, ['price', 'rent', 'amount', 'monthly_rent', 'expectedRent'], fallbackProperty.price),
+    type: getFirstValue(item, ['type', 'property_for', 'listing_type', 'rentalType', 'rentalFor'], fallbackProperty.type),
+    status: getFirstValue(item, ['status', 'property_status'], propertyStatuses[idx % propertyStatuses.length])
+  };
+};
 
 const PropertiesCard = ({
   bath,
@@ -17,17 +94,25 @@ const PropertiesCard = ({
   price,
   type,
   image,
-  status
+  status,
+  id
 }) => {
   const navigate = useNavigate();
   const isVacant = status === 'Vacant';
+  const openDetails = () => {
+    navigate(`/landlord/detailspage?property_id=${id}`, {
+      state: {
+        propertyId: id
+      }
+    });
+  };
 
   return <Card className="overflow-hidden">
       <div className="position-relative">
         <button
           type="button"
           className="border-0 bg-transparent p-0 w-100"
-          onClick={() => navigate('/landlord/detailspage')}
+          onClick={openDetails}
           aria-label={`Open ${name} details`}
         >
           <img src={image} alt="properties" className="img-fluid rounded-top w-100" style={{ cursor: 'pointer' }} />
@@ -124,10 +209,36 @@ const PropertiesCard = ({
     </Card>;
 };
 const ListingGrid = () => {
-  const propertiesData = useFetchData(getAllProperty);
+  const [propertiesData, setPropertiesData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        setLoading(true);
+        setError('');
+
+        const response = await api.get('/property/get_all/');
+        const properties = getPropertiesFromResponse(response.data).map(mapProperty);
+
+        setPropertiesData(properties);
+      } catch (err) {
+        setError(getApiErrorMessage(err));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
   return <Col xl={9} lg={12}>
+      {loading && <div className="text-center py-5">Loading properties...</div>}
+      {error && <div className="alert alert-danger" role="alert">{error}</div>}
+      {!loading && !error && propertiesData.length === 0 && <div className="text-center py-5">No properties found.</div>}
       <Row>
-        {propertiesData?.map((item, idx) => <Col lg={4} md={6} key={idx}>
+        {!loading && !error && propertiesData?.map((item, idx) => <Col lg={4} md={6} key={item.id ?? idx}>
             <PropertiesCard {...item} status={item.status ?? propertyStatuses[idx % propertyStatuses.length]} />
           </Col>)}
       </Row>

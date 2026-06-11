@@ -10,28 +10,29 @@ const statusStyle = (status) => {
 };
 
 const thStyle = {
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: 700,
   color: "#526b89",
-  padding: "16px 20px",
+  padding: "12px 16px",
   borderBottom: "1px solid #eef0f6",
   whiteSpace: "nowrap",
   background: "#fbfbfc",
 };
 
 const tdStyle = {
-  fontSize: 16,
+  fontSize: 15,
   color: "#526b89",
-  padding: "15px 20px",
+  padding: "11px 16px",
   borderBottom: "none",
   fontWeight: 400,
   verticalAlign: "middle",
+  whiteSpace: "nowrap",
 };
 
 const RentPaymentSummary = ({ data = [] }) => {
   return (
     <Card
-      className="border-0 shadow-sm w-100 d-flex flex-column"
+      className="border-0 shadow-sm h-100 w-100 d-flex flex-column"
       style={{
         borderRadius: 8,
         boxShadow: "0 10px 30px rgba(16, 24, 40, 0.07)",
@@ -45,7 +46,7 @@ const RentPaymentSummary = ({ data = [] }) => {
             color: "#526b89",
             fontWeight: 700,
             fontSize: 18,
-            padding: "28px 24px 22px",
+            padding: "22px 24px 18px",
             borderBottom: "1px solid #e6e8ec",
           }}
         >
@@ -54,13 +55,13 @@ const RentPaymentSummary = ({ data = [] }) => {
       </CardBody>
 
       {/* Table */}
-      <div style={{ overflowX: "auto", overflowY: "hidden", padding: "20px 16px 0" }}>
+      <div style={{ overflowX: "auto", overflowY: "hidden", padding: "18px 14px 0", flex: 1 }}>
         <table
           style={{
             width: "100%",
             borderCollapse: "separate",
             borderSpacing: 0,
-            minWidth: 720,
+            minWidth: 780,
             border: "1px solid #e4e6eb",
             borderRadius: 8,
             overflow: "hidden",
@@ -95,8 +96,9 @@ const RentPaymentSummary = ({ data = [] }) => {
       <div
         style={{
           textAlign: "center",
-          padding: "18px 16px 16px",
+          padding: "16px 16px 16px",
           borderTop: "1px solid #edf0f3",
+          marginTop: "auto",
         }}
       >
         <a

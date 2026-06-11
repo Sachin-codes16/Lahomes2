@@ -29,10 +29,10 @@ const CheckInDashboardView = () => {
         </Col>
       </Row>
       <Row className="g-3 align-items-start">
-        <Col xs={12} lg={8} className="order-1 d-flex">
+        <Col xs={12} lg={8} xl={7} xxl={7} className="order-1 d-flex">
           <RentPaymentSummary data={rentPaymentSummary} />
         </Col>
-        <Col xs={12} lg={4} className="order-2 d-flex">
+        <Col xs={12} lg={4} xl={5} xxl={5} className="order-2 d-flex">
           <UpcomingCheckIns data={upcomingCheckIns} />
         </Col>
       </Row>

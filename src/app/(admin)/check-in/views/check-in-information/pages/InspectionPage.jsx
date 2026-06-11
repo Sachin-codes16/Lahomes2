@@ -112,153 +112,153 @@ const StatCard = ({ stat }) => (
 );
 
 const InspectionPage = () => {
-  // return (
-  //   <div style={{ padding: 24 }}>
-  //     <div style={{ background: '#edf2f8', borderRadius: 8, marginBottom: 24, padding: '26px 25px' }}>
-  //       <div style={{ display: 'grid', gap: 18, gridTemplateColumns: 'repeat(5, minmax(190px, 1fr))' }}>
-  //         {stats.map((stat) => (
-  //           <StatCard key={stat.label} stat={stat} />
-  //         ))}
-  //       </div>
-  //     </div>
+  return (
+    <div style={{ padding: 24 }}>
+      <div style={{ background: '#edf2f8', borderRadius: 8, marginBottom: 24, padding: '26px 25px' }}>
+        <div style={{ display: 'grid', gap: 18, gridTemplateColumns: 'repeat(5, minmax(190px, 1fr))' }}>
+          {stats.map((stat) => (
+            <StatCard key={stat.label} stat={stat} />
+          ))}
+        </div>
+      </div>
 
-  //     <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'minmax(620px, 1.7fr) minmax(390px, 1fr)' }}>
-  //       <div>
-  //         <div className="mb-4" style={cardStyle}>
-  //           <div className="d-flex align-items-center justify-content-between">
-  //             <h5 style={titleStyle}>Inspections Lists</h5>
-  //             <input
-  //               placeholder="Search"
-  //               style={{
-  //                 border: 0,
-  //                 borderRadius: 4,
-  //                 boxShadow: '0 8px 18px rgba(15, 23, 42, 0.06)',
-  //                 color: pageText,
-  //                 height: 39,
-  //                 marginRight: 14,
-  //                 outline: 0,
-  //                 padding: '0 15px',
-  //                 width: 325,
-  //               }}
-  //             />
-  //           </div>
+      <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'minmax(620px, 1.7fr) minmax(390px, 1fr)' }}>
+        <div>
+          <div className="mb-4" style={cardStyle}>
+            <div className="d-flex align-items-center justify-content-between">
+              <h5 style={titleStyle}>Inspections Lists</h5>
+              <input
+                placeholder="Search"
+                style={{
+                  border: 0,
+                  borderRadius: 4,
+                  boxShadow: '0 8px 18px rgba(15, 23, 42, 0.06)',
+                  color: pageText,
+                  height: 39,
+                  marginRight: 14,
+                  outline: 0,
+                  padding: '0 15px',
+                  width: 325,
+                }}
+              />
+            </div>
 
-  //           <div style={{ padding: '34px 18px 16px' }}>
-  //             <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-  //               <thead>
-  //                 <tr style={{ background: '#fbfcfd', borderRadius: 8 }}>
-  //                   {['Category', 'Total Items', 'Good', 'Issues', 'N/A', 'Status', 'Actions'].map((head) => (
-  //                     <th
-  //                       key={head}
-  //                       style={{ color: pageText, fontSize: 16, fontWeight: 700, padding: '20px 24px' }}
-  //                     >
-  //                       {head}
-  //                     </th>
-  //                   ))}
-  //                 </tr>
-  //               </thead>
-  //               <tbody>
-  //                 {inspectionRows.map(([category, total, good, issues, na, status]) => (
-  //                   <tr key={category}>
-  //                     <td style={{ color: pageText, fontSize: 15, padding: '16px 24px' }}>
-  //                       <IconifyIcon icon="ri:checkbox-circle-line" width={16} height={16} style={{ color: '#2f7ee6', marginRight: 12 }} />
-  //                       {category}
-  //                     </td>
-  //                     {[total, good, issues, na, status].map((value, index) => (
-  //                       <td key={`${category}-${index}`} style={{ color: pageText, fontSize: 15, padding: '16px 24px' }}>
-  //                         {value}
-  //                       </td>
-  //                     ))}
-  //                     <td style={{ padding: '16px 24px' }}>
-  //                       <button type="button" style={{ background: 'transparent', border: 0, color: pageText, textDecoration: 'underline' }}>
-  //                         view
-  //                       </button>
-  //                     </td>
-  //                   </tr>
-  //                 ))}
-  //               </tbody>
-  //             </table>
-  //           </div>
-  //         </div>
+            <div style={{ padding: '34px 18px 16px' }}>
+              <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+                <thead>
+                  <tr style={{ background: '#fbfcfd', borderRadius: 8 }}>
+                    {['Category', 'Total Items', 'Good', 'Issues', 'N/A', 'Status', 'Actions'].map((head) => (
+                      <th
+                        key={head}
+                        style={{ color: pageText, fontSize: 16, fontWeight: 700, padding: '20px 24px' }}
+                      >
+                        {head}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {inspectionRows.map(([category, total, good, issues, na, status]) => (
+                    <tr key={category}>
+                      <td style={{ color: pageText, fontSize: 15, padding: '16px 24px' }}>
+                        <IconifyIcon icon="ri:checkbox-circle-line" width={16} height={16} style={{ color: '#2f7ee6', marginRight: 12 }} />
+                        {category}
+                      </td>
+                      {[total, good, issues, na, status].map((value, index) => (
+                        <td key={`${category}-${index}`} style={{ color: pageText, fontSize: 15, padding: '16px 24px' }}>
+                          {value}
+                        </td>
+                      ))}
+                      <td style={{ padding: '16px 24px' }}>
+                        <button type="button" style={{ background: 'transparent', border: 0, color: pageText, textDecoration: 'underline' }}>
+                          view
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-  //         <div style={cardStyle}>
-  //           <h5 style={titleStyle}>Inspection Photos</h5>
-  //           <div style={{ padding: '0 26px 24px' }}>
-  //             <div className="d-flex gap-3 mb-3">
-  //               {photos.map((photo) => (
-  //                 <img key={photo} alt="Inspection" src={photo} style={{ borderRadius: 8, height: 78, objectFit: 'cover', width: 110 }} />
-  //               ))}
-  //             </div>
-  //             <div className="d-flex justify-content-between align-items-center mb-2">
-  //               <h6 className="mb-0" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
-  //                 Recent Issues
-  //               </h6>
-  //               <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16 }}>
-  //                 View All
-  //               </button>
-  //             </div>
-  //             {recentIssues.map(([title, category, priority, image]) => (
-  //               <div key={title} className="d-flex align-items-center justify-content-between mb-3">
-  //                 <div className="d-flex align-items-center gap-3">
-  //                   <img alt={title} src={image} style={{ height: 32, objectFit: 'cover', width: 32 }} />
-  //                   <div>
-  //                     <p className="mb-1" style={{ color: pageText, fontSize: 15 }}>
-  //                       {title}
-  //                     </p>
-  //                     <p className="mb-0" style={{ color: pageText, fontSize: 15 }}>
-  //                       {category}
-  //                     </p>
-  //                   </div>
-  //                 </div>
-  //                 <span style={{ color: pageText, fontSize: 16 }}>{priority}</span>
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
-  //       </div>
+          <div style={cardStyle}>
+            <h5 style={titleStyle}>Inspection Photos</h5>
+            <div style={{ padding: '0 26px 24px' }}>
+              <div className="d-flex gap-3 mb-3">
+                {photos.map((photo) => (
+                  <img key={photo} alt="Inspection" src={photo} style={{ borderRadius: 8, height: 78, objectFit: 'cover', width: 110 }} />
+                ))}
+              </div>
+              <div className="d-flex justify-content-between align-items-center mb-2">
+                <h6 className="mb-0" style={{ color: pageText, fontSize: 16, fontWeight: 700 }}>
+                  Recent Issues
+                </h6>
+                <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16 }}>
+                  View All
+                </button>
+              </div>
+              {recentIssues.map(([title, category, priority, image]) => (
+                <div key={title} className="d-flex align-items-center justify-content-between mb-3">
+                  <div className="d-flex align-items-center gap-3">
+                    <img alt={title} src={image} style={{ height: 32, objectFit: 'cover', width: 32 }} />
+                    <div>
+                      <p className="mb-1" style={{ color: pageText, fontSize: 15 }}>
+                        {title}
+                      </p>
+                      <p className="mb-0" style={{ color: pageText, fontSize: 15 }}>
+                        {category}
+                      </p>
+                    </div>
+                  </div>
+                  <span style={{ color: pageText, fontSize: 16 }}>{priority}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
-  //       <div>
-  //         <div className="mb-4" style={cardStyle}>
-  //           <div className="d-flex align-items-center justify-content-between">
-  //             <h5 style={titleStyle}>Inspection Overview</h5>
-  //             <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16, paddingRight: 26 }}>
-  //               View All
-  //             </button>
-  //           </div>
-  //           <div style={{ padding: '5px 72px 28px' }}>
-  //             {overviewItems.map(([label, value]) => (
-  //               <div key={label} style={{ display: 'grid', gridTemplateColumns: '200px 20px 1fr', minHeight: 45 }}>
-  //                 <span style={{ color: pageText, fontSize: 16 }}>{label}</span>
-  //                 <span style={{ color: pageText, fontSize: 16 }}>:</span>
-  //                 <span style={{ color: pageText, fontSize: 16 }}>{value}</span>
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
+        <div>
+          <div className="mb-4" style={cardStyle}>
+            <div className="d-flex align-items-center justify-content-between">
+              <h5 style={titleStyle}>Inspection Overview</h5>
+              <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16, paddingRight: 26 }}>
+                View All
+              </button>
+            </div>
+            <div style={{ padding: '5px 72px 28px' }}>
+              {overviewItems.map(([label, value]) => (
+                <div key={label} style={{ display: 'grid', gridTemplateColumns: '200px 20px 1fr', minHeight: 45 }}>
+                  <span style={{ color: pageText, fontSize: 16 }}>{label}</span>
+                  <span style={{ color: pageText, fontSize: 16 }}>:</span>
+                  <span style={{ color: pageText, fontSize: 16 }}>{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-  //         <div style={cardStyle}>
-  //           <div className="d-flex align-items-center justify-content-between">
-  //             <h5 style={titleStyle}>Top Issues Categories</h5>
-  //             <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16, paddingRight: 26 }}>
-  //               View All
-  //             </button>
-  //           </div>
-  //           <div style={{ padding: '18px 58px 32px' }}>
-  //             {issueCategories.map(([label, value, color, width]) => (
-  //               <div key={label} style={{ alignItems: 'center', display: 'grid', gap: 18, gridTemplateColumns: '140px 1fr 24px', minHeight: 45 }}>
-  //                 <span style={{ color: pageText, fontSize: 16 }}>{label}</span>
-  //                 <span style={{ background: '#d7d7d7', borderRadius: 999, display: 'block', height: 7, overflow: 'hidden' }}>
-  //                   <span style={{ background: color, borderRadius: 999, display: 'block', height: '100%', width: `${width}%` }} />
-  //                 </span>
-  //                 <span style={{ color: pageText, fontSize: 16, textAlign: 'right' }}>{value}</span>
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+          <div style={cardStyle}>
+            <div className="d-flex align-items-center justify-content-between">
+              <h5 style={titleStyle}>Top Issues Categories</h5>
+              <button type="button" style={{ background: 'transparent', border: 0, color: '#1f7ee8', fontSize: 16, paddingRight: 26 }}>
+                View All
+              </button>
+            </div>
+            <div style={{ padding: '18px 58px 32px' }}>
+              {issueCategories.map(([label, value, color, width]) => (
+                <div key={label} style={{ alignItems: 'center', display: 'grid', gap: 18, gridTemplateColumns: '140px 1fr 24px', minHeight: 45 }}>
+                  <span style={{ color: pageText, fontSize: 16 }}>{label}</span>
+                  <span style={{ background: '#d7d7d7', borderRadius: 999, display: 'block', height: 7, overflow: 'hidden' }}>
+                    <span style={{ background: color, borderRadius: 999, display: 'block', height: '100%', width: `${width}%` }} />
+                  </span>
+                  <span style={{ color: pageText, fontSize: 16, textAlign: 'right' }}>{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default InspectionPage;

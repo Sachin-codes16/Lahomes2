@@ -205,68 +205,68 @@ const AddressCard = () => (
 );
 
 const PropertyDetailsPage = () => {
-  // return (
-  //   <div style={{ padding: '24px 24px 36px' }}>
-  //     <div style={{ ...cardStyle, padding: 24 }}>
-  //       <div
-  //         style={{
-  //           display: 'grid',
-  //           gap: 20,
-  //           gridTemplateColumns: 'repeat(5, minmax(200px, 1fr))',
-  //           overflowX: 'auto',
-  //         }}
-  //       >
-  //         {gallery.map((image, index) => (
-  //           <img
-  //             key={image}
-  //             alt={`Property ${index + 1}`}
-  //             src={image}
-  //             style={{
-  //               borderRadius: 5,
-  //               height: 350,
-  //               minWidth: 200,
-  //               objectFit: 'cover',
-  //               width: '100%',
-  //             }}
-  //           />
-  //         ))}
-  //       </div>
+  return (
+    <div style={{ padding: '24px 24px 36px' }}>
+      <div style={{ ...cardStyle, padding: 24 }}>
+        <div
+          style={{
+            display: 'grid',
+            gap: 20,
+            gridTemplateColumns: 'repeat(5, minmax(200px, 1fr))',
+            overflowX: 'auto',
+          }}
+        >
+          {gallery.map((image, index) => (
+            <img
+              key={image}
+              alt={`Property ${index + 1}`}
+              src={image}
+              style={{
+                borderRadius: 5,
+                height: 350,
+                minWidth: 200,
+                objectFit: 'cover',
+                width: '100%',
+              }}
+            />
+          ))}
+        </div>
 
-  //       <div
-  //         className="d-flex flex-column flex-md-row justify-content-between gap-3"
-  //         style={{ padding: '24px 0 14px' }}
-  //       >
-  //         <div>
-  //           <h2 className="mb-2" style={{ color: pageText, fontSize: 28, fontWeight: 700 }}>
-  //             Green Valley Villa 12A
-  //           </h2>
-  //           <p className="mb-0" style={{ color: pageText, fontSize: 16 }}>
-  //             Green Valley Society, Muskat, Oman, 4100001
-  //           </p>
-  //         </div>
+        <div
+          className="d-flex flex-column flex-md-row justify-content-between gap-3"
+          style={{ padding: '24px 0 14px' }}
+        >
+          <div>
+            <h2 className="mb-2" style={{ color: pageText, fontSize: 28, fontWeight: 700 }}>
+              Green Valley Villa 12A
+            </h2>
+            <p className="mb-0" style={{ color: pageText, fontSize: 16 }}>
+              Green Valley Society, Muskat, Oman, 4100001
+            </p>
+          </div>
 
-  //         <div className="text-md-end">
-  //           <h2 className="mb-2" style={{ color: pageText, fontSize: 28, fontWeight: 700 }}>
-  //             OMR 8,500
-  //           </h2>
-  //           <p className="mb-0" style={{ color: pageText, fontSize: 16 }}>
-  //             per month + maintenance
-  //           </p>
-  //         </div>
-  //       </div>
+          <div className="text-md-end">
+            <h2 className="mb-2" style={{ color: pageText, fontSize: 28, fontWeight: 700 }}>
+              OMR 8,500
+            </h2>
+            <p className="mb-0" style={{ color: pageText, fontSize: 16 }}>
+              per month + maintenance
+            </p>
+          </div>
+        </div>
 
-  //       <PropertyInfoCard title="Basic Property Information" items={basicInfo} />
-  //       <PropertyInfoCard title="Configuration & Area" items={configurationInfo} />
-  //       <PropertyInfoCard title="Rental & Financial Details" items={financialInfo} />
-  //       <PropertyInfoCard title="Ownership" items={ownershipInfo} />
-  //       <AmenitiesCard />
-  //       <PropertyInfoCard title="Tenant Preference" items={tenantPreferenceInfo} />
-  //       <PropertyInfoCard title="Availability & Status" items={availabilityInfo} />
-  //       <AddressCard />
-  //       <PropertyInfoCard title="System Information" items={systemInfo} />
-  //     </div>
-  //   </div>
-  // );
+        <PropertyInfoCard title="Basic Property Information" items={basicInfo} />
+        <PropertyInfoCard title="Configuration & Area" items={configurationInfo} />
+        <PropertyInfoCard title="Rental & Financial Details" items={financialInfo} />
+        <PropertyInfoCard title="Ownership" items={ownershipInfo} />
+        <AmenitiesCard />
+        <PropertyInfoCard title="Tenant Preference" items={tenantPreferenceInfo} />
+        <PropertyInfoCard title="Availability & Status" items={availabilityInfo} />
+        <AddressCard />
+        <PropertyInfoCard title="System Information" items={systemInfo} />
+      </div>
+    </div>
+  );
 };
 
 export default PropertyDetailsPage;
