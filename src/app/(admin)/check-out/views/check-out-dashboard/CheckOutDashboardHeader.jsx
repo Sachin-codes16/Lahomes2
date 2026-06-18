@@ -31,7 +31,7 @@ const CheckOutDashboardHeader = () => {
           variant="primary"
           style={{ backgroundColor: '#604ae3', borderColor: '#604ae3', borderRadius: 4, minWidth: 100, padding: '10px 18px' }}
         >
-          Edit
+          Create Check out
         </Button>
       </div>
     </div>

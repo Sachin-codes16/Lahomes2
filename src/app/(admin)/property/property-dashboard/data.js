@@ -81,12 +81,12 @@ export const salesFunnelOptions = {
       enabled: false
     },
     dropShadow: {
-      enabled: true,
+      enabled: false,
       enabledOnSeries: [2, 3],
-      top: 12,
+      top: 4,
       left: 0,
-      blur: 8,
-      opacity: 0.28,
+      blur: 4,
+      opacity: 0.12,
       color: ['#604ae3', '#ff8bea', '#604ae3', '#ff8bea']
     }
   },
@@ -113,16 +113,17 @@ export const salesFunnelOptions = {
     }
   ],
   stroke: {
-    width: [0, 0, 2.5, 2.5],
+    width: [0, 0, 2.3, 2.3],
     curve: 'smooth'
   },
   fill: {
+    opacity: [0.24, 0, 1, 1],
     type: ['gradient', 'gradient', 'solid', 'solid'],
     gradient: {
       shade: 'light',
       type: 'vertical',
-      opacityFrom: [0.22, 0.22, 0, 0],
-      opacityTo: [0, 0, 0, 0],
+      opacityFrom: 0.34,
+      opacityTo: 0,
       stops: [0, 100]
     }
   },
@@ -136,9 +137,9 @@ export const salesFunnelOptions = {
   grid: {
     show: false,
     padding: {
-      top: 0,
+      top: -6,
       right: 0,
-      bottom: -10,
+      bottom: -6,
       left: 0
     }
   },
@@ -159,7 +160,7 @@ export const salesFunnelOptions = {
   yaxis: {
     show: false,
     min: 0,
-    max: 85
+    max: 74
   },
   legend: {
     show: false

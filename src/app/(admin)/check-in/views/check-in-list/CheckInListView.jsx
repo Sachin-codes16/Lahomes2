@@ -18,14 +18,15 @@ const filterOptions = {
 
 const shellStyle = {
   background: '#f6f7fb',
-  margin: '-24px -24px 0',
+  margin: '0 -48px',
   minHeight: 'calc(100vh - 80px)',
+  paddingTop: 10,
 };
 
 const topBarStyle = {
   background: '#fff',
   borderBottom: '1px solid #eef1f5',
-  padding: '28px 32px 12px',
+  padding: '28px 56px 12px',
 };
 
 const panelStyle = {
@@ -121,7 +122,7 @@ const CheckInListView = () => {
         </div>
       </div>
 
-      <div style={{ padding: '30px 32px' }}>
+      <div style={{ padding: '30px 56px' }}>
         <div
           className="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between gap-3 mb-4"
           style={{ ...panelStyle, padding: '15px 20px' }}
@@ -144,13 +145,12 @@ const CheckInListView = () => {
           <div className="d-flex flex-wrap gap-2">
             <DateFilterButton label="From Date" />
             <DateFilterButton label="To Date" />
-            <Button style={primaryButtonStyle}>Apply Filter</Button>
-            <Button style={primaryButtonStyle}>Export PDF</Button>
+            <Button style={primaryButtonStyle}>Export Excel</Button>
           </div>
         </div>
 
-        <div className="mb-4" style={{ ...panelStyle, padding: '16px 14px' }}>
-          <Row className="g-3">
+        <div className="mb-4" style={{ ...panelStyle, padding: '20px 20px' }}>
+          <Row className="g-4">
             <SelectField label="Property Type" options={filterOptions.propertyType} />
             <SelectField label="Building" options={filterOptions.building} />
             <SelectField label="Status" options={filterOptions.status} />

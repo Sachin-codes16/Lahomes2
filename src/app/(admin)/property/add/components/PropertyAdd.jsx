@@ -6,10 +6,8 @@ import { Card, CardBody, Col, Row, Form, Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import  './PropertyAdd.css';
 
-/* ================= SCHEMA ================= */
 const schema = yup.object({});
 
 const propertyTypeOptions = [
@@ -62,142 +60,32 @@ const PropertyAdd = () => {
     const nextIndex = (currentIndex + 1) % propertyTypeOptions.length;
     setPropertyType(propertyTypeOptions[nextIndex].value);
   };
-  // Add CSS for dropdown spacing and emoji rendering
-    useEffect(() => {
-      const style = document.createElement('style');
-      style.innerHTML = `
-      
-        
-        .custom-country-dropdown {
-          position: relative;
-        }
-        
-        .country-select-box {
-          width: 100%;
-          padding: 8px 12px;
-          border: 1px solid #ced4da;
-          border-radius: 4px;
-          background: white;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-        
-        .country-select-box:hover {
-          border-color: #86b7fe;
-        }
-        
-        .country-dropdown-list {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: white;
-          border: 1px solid #ced4da;
-          border-radius: 4px;
-          margin-top: 4px;
-          max-height: 250px;
-          overflow-y: auto;
-          z-index: 1000;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .country-dropdown-item {
-          padding: 10px 12px;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          transition: background 0.2s;
-        }
-        
-        .country-dropdown-item:hover {
-          background: #f8f9fa;
-        }
-        
-        .country-flag {
-          width: 24px;
-          height: 18px;
-          display: inline-block;
-          border-radius: 2px;
-          object-fit: cover;
-        }
-        
-        .country-name {
-          font-size: 14px;
-          color: #333;
-        }
-        
-        .dropdown-arrow {
-          font-size: 12px;
-          color: #666;
-        }
-      `;
-      document.head.appendChild(style);
-      return () => {
-        document.head.removeChild(style);
-      };
-    }, []);
-
   return (
     <form className="property-add-form" onSubmit={handleSubmit(() => {})}>
 
-      {/* ================= HEADER ================= */}
-     
-
-  {/* <option value="flat">Flat / Apartment</option>
-  <option value="villa">Villa/Banglow</option>
-  <option value="office">Commercial</option>
-  <option value="office">werehouse</option> */}
-
-  
-
-           
-          
-      {/* =================  ================= */}
-      <Card className="mb-4" style={{ borderRadius: 12, overflow: 'hidden' }}>
-        <CardBody style={{ padding: 0 }}>
+      <Card className="mb-4 property-add-card">
+        <CardBody className="p-0">
           <div
-            className="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3"
-            style={{ borderBottom: '1px solid #edf0f3', padding: '28px 36px 14px' }}
+            className="property-add-header d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3"
           >
-            <h3 className="mb-0" style={{ color: '#526b89', fontSize: 26, fontWeight: 700 }}>
+            <h3 className="property-add-title mb-0">
               Add New Property
             </h3>
             <div className="d-flex align-items-center gap-3">
-              <span style={{ color: '#526b89', fontSize: 21, fontWeight: 500 }}>Select Property Type:</span>
+              <span className="property-type-label">Select Property Type:</span>
               <button
                 type="button"
                 onClick={cyclePropertyType}
-                className="d-flex align-items-center justify-content-between"
-                style={{
-                  background: '#fff',
-                  border: '1px solid #e2e6ec',
-                  borderRadius: 10,
-                  color: '#526b89',
-                  fontSize: 21,
-                  minWidth: 348,
-                  padding: '8px 17px',
-                }}
+                className="property-type-toggle d-flex align-items-center justify-content-between"
               >
                 <span>{selectedPropertyType.label}</span>
-                <span
-                  style={{
-                    borderBottom: '2px solid #526b89',
-                    borderRight: '2px solid #526b89',
-                    display: 'inline-block',
-                    height: 9,
-                    transform: 'rotate(45deg)',
-                    width: 9,
-                  }}
-                />
+                <span className="property-type-toggle-arrow" />
               </button>
             </div>
           </div>
 
-          <div style={{ padding: '36px 36px 28px' }}>
-          <h4 className="fw-semibold" style={{ color: '#526b89', fontSize: 22 }}>
+          <div className="property-add-card-body">
+          <h4 className="fw-semibold">
             {selectedPropertyType.sectionTitle}
           </h4>
           <hr />
@@ -298,7 +186,6 @@ const PropertyAdd = () => {
         </CardBody>
       </Card>
 
-      {/* ================= FLAT CONFIGURATION ================= */}
       <Card className="mb-4">
         <CardBody>
           <h4 className="fw-semibold">
@@ -312,17 +199,6 @@ const PropertyAdd = () => {
             {propertyType === 'flat' && 
             <>
           <>
-  {/* FORCE STYLE – GUARANTEED */}
-  <style>
-    {`
-      /* Target Choices input box */
-      .choices__inner {
-        background-color: #F9F9FC !important;
-        border: 1px solid #e6e8ee !important;
-      }
-    `}
-  </style>
-
   <Col lg={4}>
     <label className="form-label">BHK Configuration</label>
 
@@ -501,7 +377,6 @@ const PropertyAdd = () => {
         </CardBody>
       </Card>
 
-      {/* ================= OUTDOOR & EXCLUSIVE FEATURES (VILLA ONLY) ================= */}
       {propertyType === 'villa' && (
         <Card className="mb-4">
           <CardBody>
@@ -521,7 +396,6 @@ const PropertyAdd = () => {
         </Card>
       )}
 
-      {/* ================= COMMERCIAL INFRASTRUCTURE ================= */}
       {propertyType === 'commercial' && (
         <Card className="mb-4">
           <CardBody>
@@ -573,7 +447,6 @@ const PropertyAdd = () => {
         </Card>
       )}
 
-      {/* ================= WAREHOUSE INFRASTRUCTURE & UTILITIES ================= */}
       {propertyType === 'warehouse' && (
         <Card className="mb-4">
           <CardBody>
@@ -626,7 +499,6 @@ const PropertyAdd = () => {
         </Card>
       )}
 
-      {/* ================= WAREHOUSE LOGISTICS & VEHICLE ACCESS ================= */}
       {propertyType === 'warehouse' && (
         <Card className="mb-4">
           <CardBody>
@@ -666,9 +538,6 @@ const PropertyAdd = () => {
 
       
                         
-      {/* ================= RENTAL & FINANCIAL DETAILS ================= */}
-      {/* ================= RENTAL & FINANCIAL DETAILS ================= */}
-{/* ================= FLAT ================= */}
 {propertyType === 'flat' && (
   <Card className="mb-4">
     <CardBody>
@@ -700,7 +569,6 @@ const PropertyAdd = () => {
 )}
 
 
-{/* ================= VILLA ================= */}
 {propertyType === 'villa' && (
   <Card className="mb-4">
     <CardBody>
@@ -727,7 +595,6 @@ const PropertyAdd = () => {
 )}
 
 
-{/* ================= COMMERCIAL ================= */}
 {propertyType === 'commercial' && (
   <Card className="mb-4">
     <CardBody>
@@ -760,7 +627,6 @@ const PropertyAdd = () => {
   </Card>
 )}
 
-{/* ================= WAREHOUSE ================= */}
 {propertyType === 'warehouse' && (
   <Card className="mb-4">
     <CardBody>
@@ -917,8 +783,6 @@ const PropertyAdd = () => {
           </Row>
         </CardBody>
       </Card>)}
-      {/* ================= OWNERSHIP ================= */}
-      
    {(propertyType === 'flat' || propertyType === 'villa') && (  
      <Card className="mb-2">
         <CardBody>
@@ -955,7 +819,6 @@ const PropertyAdd = () => {
         </CardBody>
       </Card>)}
 
-      {/* ================= FACILITIES & AMENITIES ================= */}
    { propertyType === 'flat' && (
       <Card className="mb-4">
         <CardBody>
@@ -974,16 +837,13 @@ const PropertyAdd = () => {
         </CardBody>
       </Card>)}
 
-      {/* ================= TENANT PREFERENCE ================= */}
     {propertyType === 'flat' && (
   <Card className="mb-3">
     <CardBody>
 
-      {/* Heading */}
       <h4 className="fw-semibold mb-3">Tenant Preference</h4>
       <hr className="mb-4" />
 
-      {/* Rental Purpose */}
       <Row className="mb-4">
         <Col lg={4} md={6}>
           <label className="form-label mb-2">Rental Purpose</label>
@@ -998,7 +858,6 @@ const PropertyAdd = () => {
         </Col>
       </Row>
 
-      {/* Tenant Type Allowed */}
       <label className="form-label mb-3">Tenant Type Allowed</label>
 
       <div
@@ -1028,7 +887,6 @@ const PropertyAdd = () => {
 
 
 
-      {/* ================= AVAILABILITY & STATUS ================= */}
      {propertyType === 'flat' && ( 
       <Card className="mb-4">
         <CardBody>
@@ -1048,7 +906,6 @@ const PropertyAdd = () => {
         </CardBody>
       </Card>)}
 
-      {/* ================= LOCATION DETAILS ================= */}
       <Card className="mb-4">
         <CardBody>
           <h4 className="fw-semibold">Location Details</h4>
@@ -1125,7 +982,6 @@ style ={{ backgroundColor: '#F9F9FC' }}
         </CardBody>
       </Card>
 
-      {/* ================= INTERNAL TRACKING ================= */}
       <Card className="mb-4">
         <CardBody>
           <h4 className="fw-semibold">Internal Tracking</h4>
@@ -1135,7 +991,6 @@ style ={{ backgroundColor: '#F9F9FC' }}
         </CardBody>
       </Card>
 
-      {/* ================= SYSTEM FIELDS ================= */}
       <Card className="mb-4">
         <CardBody>
           <h4 className="fw-semibold">System Fields (Auto)</h4>
@@ -1148,7 +1003,6 @@ style ={{ backgroundColor: '#F9F9FC' }}
         </CardBody>
       </Card>
 
-      {/* ================= BUTTONS ================= */}
       <div className="mb-3 rounded">
         <Row className="justify-content-end g-2">
           <Col lg={2}>

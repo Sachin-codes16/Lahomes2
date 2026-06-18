@@ -68,7 +68,7 @@ const PropertyAddCard = () => {
   style={{ 
     backgroundColor: '#5D7186', 
     borderColor: '#5D7186',
-    padding: '9px 30px'  // ✅ Button bada ho jayega
+    padding: '9px 30px'
   }}
 >
   Add Property

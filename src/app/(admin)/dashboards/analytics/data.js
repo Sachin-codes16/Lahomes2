@@ -327,7 +327,7 @@ export const salesOptions = {
 export const checkInOutOptions = {
   chart: {
     type: 'bar',
-    height: 292,
+    height: 306,
     parentHeightOffset: 0,
     fontFamily: 'inherit',
     toolbar: { show: false },
@@ -347,11 +347,15 @@ export const checkInOutOptions = {
     colors: ['transparent']
   },
   xaxis: {
+    tickPlacement: 'between',
     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
     axisBorder: { show: true, color: '#8e969f', height: 2 },
     axisTicks: { show: false },
     labels: {
-      offsetY: 8,
+      show: true,
+      hideOverlappingLabels: false,
+      trim: false,
+      offsetY: 4,
       style: {
         colors: '#4f5965',
         fontSize: '12px',
@@ -381,7 +385,8 @@ export const checkInOutOptions = {
     }
   },
   grid: {
-    borderColor: '#c8cdd4',
+    show: true,
+    borderColor: '#bfc5cc',
     strokeDashArray: 0,
     xaxis: {
       lines: {
@@ -396,8 +401,8 @@ export const checkInOutOptions = {
     padding: {
       top: -4,
       right: 4,
-      bottom: 2,
-      left: 2
+      bottom: 14,
+      left: 16
     }
   },
   fill: {

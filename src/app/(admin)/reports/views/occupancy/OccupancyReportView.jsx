@@ -88,6 +88,27 @@ const OccupancyReportView = () => {
           .occupancy-report-page .table > :not(caption) > * > * {
             background: transparent;
           }
+
+          .occupancy-report-page .report-table-wrap {
+            overflow-x: visible;
+            width: 100%;
+          }
+
+          .occupancy-report-page .report-table {
+            table-layout: fixed;
+            width: 100%;
+          }
+
+          .occupancy-report-page .report-table th,
+          .occupancy-report-page .report-table td {
+            white-space: normal;
+          }
+
+          .occupancy-report-page .report-table .property-cell,
+          .occupancy-report-page .report-table .status-cell,
+          .occupancy-report-page .report-table .action-cell {
+            white-space: nowrap;
+          }
         `}
       </style>
 
@@ -144,8 +165,7 @@ const OccupancyReportView = () => {
             <IconifyIcon icon="ri:arrow-down-s-line" className="me-1" />
             To Date
           </Button>
-          <Button className="primary-action">Apply Filter</Button>
-          <Button className="primary-action">Export PDF</Button>
+          <Button className="primary-action">Export Excel</Button>
         </div>
       </div>
 
@@ -179,8 +199,8 @@ const OccupancyReportView = () => {
               </h5>
             </CardHeader>
             <CardBody className="p-0">
-              <div className="table-responsive">
-                <table className="table align-middle text-nowrap table-hover table-centered mb-0">
+              <div className="report-table-wrap">
+                <table className="table align-middle table-hover table-centered mb-0 report-table">
                   <thead style={{ background: '#fbfbfc' }}>
                     <tr>
                       {['Sr. No.', 'P. ID', 'Property Name', 'Type', 'Building/Project', 'Unit No', 'Start Date', 'End Date', 'Rent', 'Status', 'Action'].map((heading) => (
@@ -195,7 +215,7 @@ const OccupancyReportView = () => {
                       <tr key={`${row.srNo}-${row.unitNo}`}>
                         <td style={cellStyle}>{row.srNo}</td>
                         <td style={cellStyle}>{row.id}</td>
-                        <td style={{ ...cellStyle, color: '#2f3848', fontWeight: 600 }}>
+                        <td className="property-cell" style={{ ...cellStyle, color: '#2f3848', fontWeight: 600 }}>
                           <span className="d-inline-flex align-items-center gap-3">
                             <span className="d-inline-flex align-items-center justify-content-center" style={{ width: 36, height: 36, borderRadius: '50%', background: '#dedede', color: '#2f3848' }}>
                               <IconifyIcon icon="ri:image-line" width={14} height={14} />
@@ -209,10 +229,10 @@ const OccupancyReportView = () => {
                         <td style={cellStyle}>{row.startDate}</td>
                         <td style={cellStyle}>{row.endDate}</td>
                         <td style={cellStyle}>{row.rent}</td>
-                        <td style={cellStyle}>
+                        <td className="status-cell" style={cellStyle}>
                           <span style={getStatusStyle(row.status)}>{row.status}</span>
                         </td>
-                        <td style={cellStyle}>
+                        <td className="action-cell" style={cellStyle}>
                           <div className="d-flex gap-2">
                             <Button variant="light" size="sm" style={actionButtonStyle}>
                               <IconifyIcon icon="solar:eye-broken" className="align-middle fs-16" />
@@ -294,7 +314,7 @@ const headStyle = {
   color: '#526b89',
   fontSize: 14,
   fontWeight: 600,
-  padding: '15px 16px',
+  padding: '15px 12px',
   borderBottom: '1px solid #edf0f3',
 };
 
@@ -302,7 +322,7 @@ const cellStyle = {
   color: '#526b89',
   fontSize: 14,
   fontWeight: 400,
-  padding: '12px 16px',
+  padding: '12px',
   borderBottom: '1px solid #edf0f3',
   verticalAlign: 'middle',
 };

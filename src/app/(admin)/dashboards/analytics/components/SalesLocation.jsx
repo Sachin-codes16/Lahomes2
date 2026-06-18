@@ -11,8 +11,10 @@ const CheckInOutOverview = () => {
             Check-in & Check-Out Overview
           </CardTitle>
         </CardHeader>
-        <CardBody style={{ padding: '0 20px 6px' }}>
-          <ReactApexChart options={checkInOutOptions} series={checkInOutSeries} height={318} type="bar" className="apex-charts" />
+        <CardBody style={{ padding: '0 20px', overflow: 'hidden' }}>
+          <div style={{ transform: 'scale(1.08)', transformOrigin: 'top center' }}>
+            <ReactApexChart options={checkInOutOptions} series={checkInOutSeries} height={306} type="bar" className="apex-charts" />
+          </div>
         </CardBody>
       </Card>
     </Col>

@@ -5,14 +5,14 @@ import { Link, useNavigate } from 'react-router-dom';
 const pageText = '#526b89';
 
 const rows = [
-  ['1', 'CH12345', 'Aylin Huynh', 'Silver Oak Residency', 'A-101', '21 May 2015', '1500 OMR', 'Completed', 'Returned', 'Refunded', 'Completed'],
-  ['2', 'CH12345', 'Louise Morton', 'Green Valley Heights', 'B-204', '21 May 2018', '2500 OMR', 'Completed', 'Returned', 'Refunded', 'In Progress'],
-  ['3', 'CH12345', 'Analia Huffman', 'Sunrise Meadows', 'C-307', '21 May 2011', '3500 OMR', 'In Progress', 'Pending', 'Pending', 'In Progress'],
-  ['4', 'CH12345', 'Novah Gibson', 'Blue Horizon Towers', 'D-402', '21 May 2011', '3500 OMR', 'Completed', 'Pending', 'Pending', 'Active'],
-  ['5', 'CH12345', 'Kavya Joshi', 'Maple Leaf Villas', 'E-509', '21 May 2018', '2700 OMR', 'Pending', 'Pending', 'Pending', 'In Progress'],
-  ['6', 'CH12345', 'Rahul Mehta', 'Golden Crest Villa', 'F-603', '21 May 2018', '5800 OMR', 'Completed', 'Returned', 'Refunded', 'Completed'],
-  ['7', 'CH12345', 'Sneha Nair', 'Riverstone Enclave', 'G-708', '21 May 2018', '4600 OMR', 'Completed', 'Returned', 'Refunded', 'Completed'],
-  ['8', 'CH12345', 'Arjun Reddy', 'Palm Grove Estate', 'H-812', '21 May 2018', '2500 OMR', 'Pending', 'Pending', 'Pending', 'In Progress'],
+  ['1', 'CH12345', 'Aylin Huynh', 'Silver Oak Residency', 'A-101', '21 May 2015', '1500 OMR', 'Completed', 'Returned', 'Refunded', 'Completed', 'Tenant'],
+  ['2', 'CH12345', 'Louise Morton', 'Green Valley Heights', 'B-204', '21 May 2018', '2500 OMR', 'Completed', 'Returned', 'Refunded', 'In Progress', 'Tenant'],
+  ['3', 'CH12345', 'Analia Huffman', 'Sunrise Meadows', 'C-307', '21 May 2011', '3500 OMR', 'In Progress', 'Pending', 'Pending', 'In Progress', 'Admin'],
+  ['4', 'CH12345', 'Novah Gibson', 'Blue Horizon Towers', 'D-402', '21 May 2011', '3500 OMR', 'Completed', 'Pending', 'Pending', 'Active', 'Admin'],
+  ['5', 'CH12345', 'Kavya Joshi', 'Maple Leaf Villas', 'E-509', '21 May 2018', '2700 OMR', 'Pending', 'Pending', 'Pending', 'In Progress', 'Tenant'],
+  ['6', 'CH12345', 'Rahul Mehta', 'Golden Crest Villa', 'F-603', '21 May 2018', '5800 OMR', 'Completed', 'Returned', 'Refunded', 'Completed', 'Admin'],
+  ['7', 'CH12345', 'Sneha Nair', 'Riverstone Enclave', 'G-708', '21 May 2018', '4600 OMR', 'Completed', 'Returned', 'Refunded', 'Completed', 'Tenant'],
+  ['8', 'CH12345', 'Arjun Reddy', 'Palm Grove Estate', 'H-812', '21 May 2018', '2500 OMR', 'Pending', 'Pending', 'Pending', 'In Progress', 'Tenant'],
 ];
 
 const panelStyle = {
@@ -44,6 +44,8 @@ const badgePalette = {
   Active: { background: '#d9f3e4', color: '#32bf72' },
   Pending: { background: '#fff0df', color: '#f2a24d' },
   'In Progress': { background: '#e2ebfb', color: '#5d83ff' },
+  Tenant: { background: '#e2ebfb', color: '#5d83ff' },
+  Admin: { background: '#fff0df', color: '#f2a24d' },
 };
 
 const Badge = ({ value }) => (
@@ -95,7 +97,7 @@ const List = () => {
       </h5>
 
       <div style={{ overflowX: 'auto', padding: '0 16px 0' }}>
-        <table style={{ borderCollapse: 'collapse', minWidth: 1450, width: '100%' }}>
+        <table style={{ borderCollapse: 'collapse', minWidth: 1550, width: '100%' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid #e7ebf1' }}>
               {[
@@ -122,6 +124,7 @@ const List = () => {
                 </>,
                 'Refund Status',
                 'Status',
+                'Request From',
                 'Action',
               ].map((head, index) => (
                 <th key={index} style={tableHeaderStyle}>
@@ -155,6 +158,9 @@ const List = () => {
                 </td>
                 <td style={tableCellStyle}>
                   <Badge value={row[10]} />
+                </td>
+                <td style={tableCellStyle}>
+                  <Badge value={row[11]} />
                 </td>
                 <td style={tableCellStyle}>
                   <div className="d-flex gap-2">

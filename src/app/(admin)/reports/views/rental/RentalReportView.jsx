@@ -118,6 +118,27 @@ const RentalReportView = () => {
           .rental-report-page .table > :not(caption) > * > * {
             background: transparent;
           }
+
+          .rental-report-page .report-table-wrap {
+            overflow-x: visible;
+            width: 100%;
+          }
+
+          .rental-report-page .report-table {
+            table-layout: fixed;
+            width: 100%;
+          }
+
+          .rental-report-page .report-table th,
+          .rental-report-page .report-table td {
+            white-space: normal;
+          }
+
+          .rental-report-page .report-table .title-cell,
+          .rental-report-page .report-table .status-cell,
+          .rental-report-page .report-table .action-cell {
+            white-space: nowrap;
+          }
         `}
       </style>
 
@@ -148,13 +169,12 @@ const RentalReportView = () => {
             <IconifyIcon icon="ri:arrow-down-s-line" className="me-1" />
             To Date
           </Button>
-          <Button className="primary-action">Apply Filter</Button>
-          <Button className="primary-action">Export PDF</Button>
+          <Button className="primary-action">Export Excel</Button>
         </div>
       </div>
 
       <Row className="g-3">
-        <Col xl={3} lg={12}>
+        <Col xl={2} lg={12}>
           <Card className="report-card">
             <CardHeader className="bg-white border-bottom" style={{ padding: '16px 20px' }}>
               <h5 className="filter-title mb-1">Property</h5>
@@ -214,7 +234,7 @@ const RentalReportView = () => {
           </Card>
         </Col>
 
-        <Col xl={9} lg={12}>
+        <Col xl={10} lg={12}>
           <Card className="report-card">
             <CardHeader className="bg-white border-0" style={{ padding: '18px 20px 14px' }}>
               <h5 className="mb-0" style={{ color: '#536b86', fontSize: 16, fontWeight: 700 }}>
@@ -222,8 +242,8 @@ const RentalReportView = () => {
               </h5>
             </CardHeader>
             <CardBody className="p-0">
-              <div className="table-responsive">
-                <table className="table align-middle text-nowrap table-hover table-centered mb-0">
+              <div className="report-table-wrap">
+                <table className="table align-middle table-hover table-centered mb-0 report-table">
                   <thead style={{ background: '#fbfbfc' }}>
                     <tr>
                       {['P. ID', 'Title', 'Type', 'Target', 'Added By', 'Area (sq.ft)', 'Rooms', 'Features', 'Rent', 'Status', 'Action'].map((heading) => (
@@ -237,7 +257,7 @@ const RentalReportView = () => {
                     {rows.map((row, index) => (
                       <tr key={`${row.title}-${index}`}>
                         <td style={cellStyle}>{row.id}</td>
-                        <td style={{ ...cellStyle, color: '#2f3848', fontWeight: 600 }}>
+                        <td className="title-cell" style={{ ...cellStyle, color: '#2f3848', fontWeight: 600 }}>
                           <span className="d-inline-flex align-items-center gap-2">
                             <span className="d-inline-flex align-items-center justify-content-center" style={{ width: 36, height: 36, borderRadius: '50%', background: '#e5e5e5', color: '#2f3848' }}>
                               <IconifyIcon icon="ri:image-line" width={14} height={14} />
@@ -252,12 +272,12 @@ const RentalReportView = () => {
                         <td style={cellStyle}>{row.rooms}</td>
                         <td style={{ ...cellStyle, maxWidth: 150, whiteSpace: 'normal' }}>{row.features}</td>
                         <td style={cellStyle}>{row.rent}</td>
-                        <td style={cellStyle}>
+                        <td className="status-cell" style={cellStyle}>
                           <span style={{ borderRadius: 5, color: row.status === 'Active' ? '#22a06b' : '#e65f5c', background: row.status === 'Active' ? '#dff6e9' : '#ffe2e2', fontSize: 13, fontWeight: 600, padding: '5px 11px' }}>
                             {row.status}
                           </span>
                         </td>
-                        <td style={cellStyle}>
+                        <td className="action-cell" style={cellStyle}>
                           <div className="d-flex gap-2">
                             <Button variant="light" size="sm" style={actionButtonStyle}>
                               <IconifyIcon icon="solar:eye-broken" className="align-middle fs-16" />
@@ -325,7 +345,7 @@ const headStyle = {
   color: '#526b89',
   fontSize: 14,
   fontWeight: 600,
-  padding: '15px 20px',
+  padding: '15px 12px',
   borderBottom: '1px solid #edf0f3',
 };
 
@@ -333,7 +353,7 @@ const cellStyle = {
   color: '#526b89',
   fontSize: 14,
   fontWeight: 400,
-  padding: '12px 20px',
+  padding: '12px',
   borderBottom: '1px solid #edf0f3',
   verticalAlign: 'middle',
 };

@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 const pageText = '#526b89';
+const detailsPath = '/check-in-information';
+const editPath = '/check-in-start#check-in-information';
 
 const checkInRows = [
   {
@@ -14,7 +16,7 @@ const checkInRows = [
     checkinDate: '21 May 2015',
     rent: '1500 OMR',
     assignmentStatus: 'Approved',
-    keyStatus: 'Handedover',
+    keyStatus: 'Handed Over',
     status: 'Completed',
     assignedTo: 'Ahmed Al-Harthi',
   },
@@ -27,7 +29,7 @@ const checkInRows = [
     checkinDate: '21 May 2018',
     rent: '2500 OMR',
     assignmentStatus: 'Approved',
-    keyStatus: 'Handedover',
+    keyStatus: 'Handed Over',
     status: 'In Progress',
     assignedTo: 'Salim Al-Balushi',
   },
@@ -79,7 +81,7 @@ const checkInRows = [
     checkinDate: '21 May 2018',
     rent: '5800 OMR',
     assignmentStatus: 'Approved',
-    keyStatus: 'Handedover',
+    keyStatus: 'Handed Over',
     status: 'Completed',
     assignedTo: 'Ananya Iyer',
   },
@@ -92,7 +94,7 @@ const checkInRows = [
     checkinDate: '21 May 2018',
     rent: '4600 OMR',
     assignmentStatus: 'Approved',
-    keyStatus: 'Handedover',
+    keyStatus: 'Handed Over',
     status: 'Completed',
     assignedTo: 'Karan Singh',
   },
@@ -114,7 +116,7 @@ const checkInRows = [
 const panelStyle = {
   background: '#fff',
   borderRadius: 6,
-  boxShadow: '0 7px 24px rgba(15, 23, 42, 0.07)',
+  boxShadow: '0 7px 24px rgba(15, 23, 42, 0.06)',
 };
 
 const tableHeaderStyle = {
@@ -135,7 +137,7 @@ const tableCellStyle = {
 
 const badgePalette = {
   Approved: { background: '#d9f3e4', color: '#32bf72' },
-  Handedover: { background: '#d9f3e4', color: '#32bf72' },
+  'Handed Over': { background: '#d9f3e4', color: '#32bf72' },
   Completed: { background: '#d9f3e4', color: '#32bf72' },
   Active: { background: '#d9f3e4', color: '#32bf72' },
   Pending: { background: '#fff0df', color: '#f2a24d' },
@@ -146,7 +148,7 @@ const badgePalette = {
 const Badge = ({ value }) => (
   <span
     style={{
-      ...badgePalette[value],
+      ...(badgePalette[value] || { background: '#eef2f7', color: pageText }),
       borderRadius: 4,
       display: 'inline-block',
       fontSize: 13,
@@ -160,12 +162,14 @@ const Badge = ({ value }) => (
   </span>
 );
 
-const ActionButton = ({ icon, to, bg = '#f4f7fa' }) => (
+const ActionButton = ({ icon, label, to, bg = '#f4f7fa' }) => (
   <Button
     as={Link}
     to={to}
     onClick={(event) => event.stopPropagation()}
     variant="link"
+    aria-label={label}
+    title={label}
     className="d-inline-flex align-items-center justify-content-center p-0"
     style={{
       background: bg,
@@ -184,7 +188,7 @@ const List = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{ ...panelStyle, overflow: 'hidden' }}>
+    <div style={{ ...panelStyle, overflow: 'hidden', width: '100%' }}>
       <h5
         className="mb-0"
         style={{
@@ -198,7 +202,7 @@ const List = () => {
         Check-in List (123)
       </h5>
 
-      <div style={{ overflowX: 'auto', padding: '0 16px 16px' }}>
+      <div style={{ background: '#fff', overflowX: 'auto', padding: '0 16px 16px' }}>
         <table style={{ borderCollapse: 'collapse', minWidth: 1450, width: '100%' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid #e7ebf1' }}>
@@ -207,7 +211,7 @@ const List = () => {
               <th style={tableHeaderStyle}>Tenant Name</th>
               <th style={tableHeaderStyle}>Property</th>
               <th style={tableHeaderStyle}>Unit No.</th>
-              <th style={tableHeaderStyle}>Checkin Date</th>
+              <th style={tableHeaderStyle}>Check-In Date</th>
               <th style={tableHeaderStyle}>Rent</th>
               <th style={tableHeaderStyle}>Assignment Status</th>
               <th style={tableHeaderStyle}>Key Status</th>
@@ -221,13 +225,13 @@ const List = () => {
             {checkInRows.map((row) => (
               <tr
                 key={`${row.srNo}-${row.tenantName}`}
-                onClick={() => navigate('/check-in-information')}
+                onClick={() => navigate(detailsPath)}
                 style={{ borderBottom: '1px solid #eef1f5', cursor: 'pointer' }}
               >
                 <td style={{ ...tableCellStyle, textAlign: 'center' }}>{row.srNo}</td>
                 <td style={tableCellStyle}>{row.tenantId}</td>
                 <td style={{ ...tableCellStyle, color: '#273247', fontWeight: 500 }}>
-                  <Link to="/check-in-information" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <Link to={detailsPath} style={{ color: 'inherit', textDecoration: 'none' }}>
                     {row.tenantName}
                   </Link>
                 </td>
@@ -248,7 +252,7 @@ const List = () => {
                 <td style={tableCellStyle}>
                   <Button
                     as={Link}
-                    to="/check-out-list"
+                    to="/check-out-start"
                     onClick={(event) => event.stopPropagation()}
                     style={{
                       background: '#6382b0',
@@ -265,8 +269,8 @@ const List = () => {
                 </td>
                 <td style={tableCellStyle}>
                   <div className="d-flex gap-2">
-                    <ActionButton icon="solar:eye-broken" to="/check-in-information" />
-                    <ActionButton icon="solar:pen-2-broken" to="/check-in-information" bg="#f5f0ff" />
+                    <ActionButton icon="solar:eye-broken" label="View check-in details" to={detailsPath} />
+                    <ActionButton icon="solar:pen-2-broken" label="Edit check-in" to={editPath} bg="#f5f0ff" />
                   </div>
                 </td>
               </tr>

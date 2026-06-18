@@ -38,7 +38,7 @@ const CheckOutOverviewCards = ({ cards = [] }) => (
               ))}
             </div>
 
-            <div className="d-flex align-items-center justify-content-center" style={{ minHeight: 52, padding: '12px', borderTop: '1px solid #edf0f3', background: '#fbfcfe' }}>
+            <div className="d-flex align-items-center justify-content-center" style={{ minHeight: 52, padding: '12px', borderTop: '1px solid #d8dee8', background: '#fff' }}>
               <a href="#" style={{ color: overviewTextColor, fontSize: 16, fontWeight: 500, lineHeight: 1.2, textDecoration: 'none' }}>
                 {card.footer}
               </a>

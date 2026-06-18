@@ -355,9 +355,6 @@ const ChatArea = ({
     getMessagesForUser();
   }, [getMessagesForUser]);
 
-  /**
-   * sends the chat message
-   */
   const sendChatMessage = values => {
     const newUserMessages = [...userMessages];
     newUserMessages.push({

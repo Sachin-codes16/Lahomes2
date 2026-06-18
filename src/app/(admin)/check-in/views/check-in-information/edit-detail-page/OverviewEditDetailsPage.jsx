@@ -496,83 +496,84 @@ const CheckInInformationForm = ({ mode = 'check-in' }) => {
                   </Col>
                 </Row>
 
-<h5 style={sectionTitleStyle}>
-  K. Comments
-</h5>
+                <h5 style={sectionTitleStyle}>
+                  K. Comments
+                </h5>
+                
+                <Row className="g-4 mb-4">
+                  <Col md={12}>
+                    <TextAreaField
+                      label="Internal Comments"
+                      placeholder="For Internal Staff Only"
+                    />
+                  </Col>
+                
+                  <Col md={12}>
+                    <TextAreaField
+                      label="Tenant Remarks"
+                      placeholder="Feedback or Notes from tenant"
+                    />
+                  </Col>
+                
+                  <Col md={12}>
+                    <TextAreaField
+                      label="Special Instructions"
+                      placeholder="Any special instruction for this check-in"
+                    />
+                  </Col>
+                </Row>
+                <h5 style={sectionTitleStyle}>
+                  L. System Fields (Auto)
+                </h5>
+                
+                <Row className="g-4 mb-4">
+                  <Col md={4}>
+                    <FormField
+                      label="Created By"
+                      placeholder="System Admin"
+                    />
+                  </Col>
+                
+                  <Col md={4}>
+                    <DateField
+                      label="Created Date"
+                      placeholder="dd-mm-yyyy"
+                    />
+                  </Col>
+                
+                  <Col md={4}>
+                    <FormField
+                      label="Updated By"
+                      placeholder="Auto"
+                    />
+                  </Col>
+                
+                  <Col md={4}>
+                    <DateField
+                      label="Updated Date"
+                      placeholder="dd-mm-yyyy"
+                    />
+                  </Col>
+                
+                  <Col md={12}>
+                    <div>
+                      <label style={labelStyle}>
+                        Status History
+                      </label>
+                
+                      <textarea
+                        style={{
+                          ...fieldStyle,
+                          minHeight: "85px",
+                          resize: "none",
+                          paddingTop: "12px",
+                        }}
+                        defaultValue="Created -> Inspection Pending"
+                      />
+                    </div>
+                  </Col>
+                </Row>
 
-<Row className="g-4 mb-4">
-  <Col md={12}>
-    <TextAreaField
-      label="Internal Comments"
-      placeholder="For Internal Staff Only"
-    />
-  </Col>
-
-  <Col md={12}>
-    <TextAreaField
-      label="Tenant Remarks"
-      placeholder="Feedback or Notes from tenant"
-    />
-  </Col>
-
-  <Col md={12}>
-    <TextAreaField
-      label="Special Instructions"
-      placeholder="Any special instruction for this check-in"
-    />
-  </Col>
-</Row>
-<h5 style={sectionTitleStyle}>
-  L. System Fields (Auto)
-</h5>
-
-<Row className="g-4 mb-4">
-  <Col md={4}>
-    <FormField
-      label="Created By"
-      placeholder="System Admin"
-    />
-  </Col>
-
-  <Col md={4}>
-    <DateField
-      label="Created Date"
-      placeholder="dd-mm-yyyy"
-    />
-  </Col>
-
-  <Col md={4}>
-    <FormField
-      label="Updated By"
-      placeholder="Auto"
-    />
-  </Col>
-
-  <Col md={4}>
-    <DateField
-      label="Updated Date"
-      placeholder="dd-mm-yyyy"
-    />
-  </Col>
-
-  <Col md={12}>
-    <div>
-      <label style={labelStyle}>
-        Status History
-      </label>
-
-      <textarea
-        style={{
-          ...fieldStyle,
-          minHeight: "85px",
-          resize: "none",
-          paddingTop: "12px",
-        }}
-        defaultValue="Created -> Inspection Pending"
-      />
-    </div>
-  </Col>
-</Row>
                 <div className="d-flex justify-content-end gap-2">
                   <Button
                     as={Link}

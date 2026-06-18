@@ -19,7 +19,7 @@ const StatusOverviewCard = () => {
                 <ReactApexChart options={statusOverviewOptions} series={statusOverviewOptions.series} width={210} height={210} type="donut" className="apex-charts" />
               </div>
             </Col>
-            <Col xs={12} md={7}>
+            <Col xs={12} md={7} className="ps-md-4">
               <div className="d-flex flex-column" style={{ gap: '20px', paddingLeft: '4px', paddingRight: '4px' }}>
                 {[
                   { label: 'Checked-In', color: '#58bf7d', value: '82.00%' },
